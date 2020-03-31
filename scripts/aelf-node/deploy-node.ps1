@@ -20,11 +20,9 @@
 # cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf;
 # cd ssdb-bin  
 # ssdb-server-1.9.4.exe ssdb.conf
-netstat -an;
-cd D:\a\1\s;
-mkdir -p C:\Users\Default\AppData\Local\key\ ;
-cp -r scripts\aelf-node\keys\* C:\Users\Default\AppData\Local\key\ ;
-ls -l C:\Users\Default\AppData\Local\key\ ;
+mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
+cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
+ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys ;
 wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip -OutFile  aelf.zip ;
 Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
