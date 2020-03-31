@@ -16,8 +16,8 @@ jobs:
       dockerVersion: '17.09.0-ce'
   - script: |
       which docker
-      ls -l /c/hostedtoolcache/windows/docker-stable/17.9.0-ce/
-      /c/hostedtoolcache/windows/docker-stable/17.9.0-ce/x64/docker.exe pull redis
+      ls -l /c/hostedtoolcache/windows/docker-stable/17.9.0-ce/x64.complete/
+      
 
   - task: DotNetCoreInstaller@0
     inputs:
