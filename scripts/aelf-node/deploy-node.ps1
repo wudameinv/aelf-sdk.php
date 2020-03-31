@@ -18,7 +18,8 @@ sleep 3
 # ls
 # sleep 5
 cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-(cd ssdb-bin) -and  (ssdb-server-1.9.4.exe ssdb.conf)
+(cd ssdb-bin) -and  (ssdb-server-1.9.4.exe ssdb.conf);
+netstat -an;
 cd D:\a\1\s;
 mkdir -p C:\Users\Default\AppData\Local\key\ ;
 cp -r scripts\aelf-node\keys\* C:\Users\Default\AppData\Local\key\ ;
