@@ -17,11 +17,6 @@ jobs:
     displayName: 'start ssdb'
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
-  - powershell: |
-      ls -l aelf/
-      dotnet ./aelf/AElf.Launcher.dll
-      netstat -ant 
-    displayName: 'start node'
   - script: |
       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
       php -c /c/tools/php/php.ini
