@@ -11,5 +11,5 @@ Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\appsettings.MainChain.TestNet.json ;
-(cd aelf) -and (dotnet AElf.Launcher.dll >log.txt 2>&1) ;
+(cd aelf) -and (dotnet AElf.Launcher.dll >log.txt 2>&1 &) ;
 netstat -ant ;
