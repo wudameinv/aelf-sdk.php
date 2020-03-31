@@ -9,7 +9,7 @@ jobs:
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
-  - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
+#   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
