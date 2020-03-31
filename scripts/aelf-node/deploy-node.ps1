@@ -8,7 +8,7 @@
 # Expand-Archive -Path C:\vagrant-redis.zip -DestinationPath C:\vagrant-redis ;
 # cd c:\vagrant-redis;
 # vagrant up;
-git clone https://github.com/ideawu/ssdb-bin.git
+git clone https://github.com/ideawu/ssdb-bin.git;
 ls
 sleep 3
 # git clone https://github.com/ideawu/ssdb.git
@@ -17,8 +17,9 @@ sleep 3
 # unzip 1.9.4.zip 
 # ls
 # sleep 5
-cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-(cd ssdb-bin) -and  (ssdb-server-1.9.4.exe ssdb.conf);
+cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf;
+cd ssdb-bin  
+ssdb-server-1.9.4.exe ssdb.conf
 netstat -an;
 cd D:\a\1\s;
 mkdir -p C:\Users\Default\AppData\Local\key\ ;
