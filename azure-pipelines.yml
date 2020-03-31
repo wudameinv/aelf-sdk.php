@@ -9,22 +9,22 @@ jobs:
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
-  - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
+#   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
       which php
-      cat php.ini
+      cat /c/tools/php/php.ini
       php -version
     displayName: 'Use PHP version $(phpVersion)'
-  - script: |
-      php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-      php composer-setup.php
-      php -r "unlink('composer-setup.php');"
-      composer config -g repo.packagist composer https://packagist.phpcomposer.com
-      composer install --no-interaction --prefer-dist
-    displayName: 'composer install'
-  - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-    displayName: 'test'
+#   - script: |
+#       php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+#       php composer-setup.php
+#       php -r "unlink('composer-setup.php');"
+#       composer config -g repo.packagist composer https://packagist.phpcomposer.com
+#       composer install --no-interaction --prefer-dist
+#     displayName: 'composer install'
+#   - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+#     displayName: 'test'
  #All tasks on Linux
 - job: build_all_linux
   displayName: Build all tasks (Linux)
