@@ -1,25 +1,25 @@
 jobs:
- - job: build_all_windows
-   displayName: Build all tasks (Windows)
-   pool:
-     vmImage: windows-latest
-   variables:
-     phpVersion: 7.2
-   steps:
-   - task: DotNetCoreInstaller@0
-     inputs:
+- job: build_all_windows
+  displayName: Build all tasks (Windows)
+  pool:
+    vmImage: windows-latest
+  variables:
+    phpVersion: 7.2
+  steps:
+  - task: DotNetCoreInstaller@0
+    inputs:
        version: '3.1.101'
-   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
-     displayName: 'deploy a full node'
+  - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
+    displayName: 'deploy a full node'
 #    - powershell: (cd C:\Redis) -and (C:\Redis\redis-server.exe --service-install redis.windows.conf --loglevel 
 # verbose) -and (C:\Redis\redis-server.exe --service-start )   
-   - powershell: netstat -ant
-   - powershell: php -version
-     displayName: 'Use PHP version $(phpVersion)'
-   - powershell: composer install --no-interaction --prefer-dist
-     displayName: 'composer install'
-   - powershell: cd example && phpunit AelfTest
-     displayName: 'test'
+  - powershell: netstat -ant
+  - powershell: php -version
+    displayName: 'Use PHP version $(phpVersion)'
+  - powershell: composer install --no-interaction --prefer-dist
+    displayName: 'composer install'
+  - powershell: cd example && phpunit AelfTest
+    displayName: 'test'
  #All tasks on Linux
 - job: build_all_linux
   displayName: Build all tasks (Linux)
