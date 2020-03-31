@@ -1,7 +1,6 @@
 wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  C:\Redis.zip ;
 Expand-Archive -Path C:\Redis.zip -DestinationPath C:\Redis ;
 C:\Redis\redis-server.exe 2&>log.txt 
-(cd C:\Redis) -and (C:\Redis\redis-server.exe --service-install C:\Redis\redis.windows.conf --loglevel verbose) -and (redis-server.exe --service-start);
 cd D:\a\1\s
 mkdir -p C:\Users\Default\AppData\Local\key\ ;
 cp -r scripts\aelf-node\keys\* C:\Users\Default\AppData\Local\key\ ;
