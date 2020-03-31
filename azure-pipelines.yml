@@ -11,7 +11,10 @@ jobs:
        version: '3.1.101'
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
-  - powershell: php -version
+  - script: |
+      which php
+      cat php.ini
+      php -version
     displayName: 'Use PHP version $(phpVersion)'
   - script: |
       php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
