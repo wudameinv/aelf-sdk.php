@@ -5,15 +5,7 @@ jobs:
     vmImage: windows-2019
   variables:
     phpVersion: 7.2
-  # services:
-  #   redis:
-  #     image: redis
-  #     ports:
-  #     - 6379:6379
   steps:
-  - task: DockerInstaller@0
-    inputs:
-      dockerVersion: '17.09.0-ce'
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
@@ -22,6 +14,8 @@ jobs:
       cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
       cd ssdb-bin  
       ssdb-server-1.9.4.exe -d ssdb.conf
+      ls -l  C:\hostedtoolcache\windows\dncs\3.1.101\x64\
+    displayName: 'start ssdb'
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
