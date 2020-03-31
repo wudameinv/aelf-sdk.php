@@ -9,9 +9,11 @@
 # cd c:\vagrant-redis;
 # vagrant up;
 git clone https://github.com/ideawu/ssdb-bin.git
-git clone https://github.com/ideawu/ssdb.git
-cp ./ssdb.conf ./ssdb/ssdb.conf
-./ssdb-bin/ssdb-server-1.9.4.exe -d ./ssdb/ssdb.conf
+ls
+wget https://github.com/ideawu/ssdb/archive/1.9.7.zip
+unzip 1.9.7.zip 
+cp scripts/aelf-node/ssdb.conf ./ssdb-1.9.7/ssdb.conf
+./ssdb-bin/ssdb-server-1.9.4.exe -d ./ssdb-1.9.7/ssdb.conf
 cd D:\a\1\s;
 mkdir -p C:\Users\Default\AppData\Local\key\ ;
 cp -r scripts\aelf-node\keys\* C:\Users\Default\AppData\Local\key\ ;
