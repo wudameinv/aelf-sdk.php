@@ -19,7 +19,7 @@ jobs:
     displayName: 'deploy a full node' 
   - script: |
       cd aelf 
-      dotnet.exe AElf.Launcher.dll
+      C:\hostedtoolcache\windows\dncs\3.1.101\x64\dotnet.exe AElf.Launcher.dll
       netstat -ant 
     displayName: 'start node'
   - script: |
