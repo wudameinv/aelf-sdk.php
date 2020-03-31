@@ -16,7 +16,7 @@ jobs:
       dockerVersion: '17.09.0-ce'
   - script: |
       which docker
-      find /c/hostedtoolcache/windows/docker-stable -name deamon.json
+      ls /c/hostedtoolcache/windows/docker-stable/
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
