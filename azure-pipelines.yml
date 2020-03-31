@@ -17,8 +17,8 @@ jobs:
     displayName: 'start ssdb'
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
-  - script: |
-      dotnet .\aelf\AElf.Launcher.dll
+  - powershell: |
+      dotnet ./aelf/AElf.Launcher.dll
       netstat -ant 
     displayName: 'start node'
   - script: |
