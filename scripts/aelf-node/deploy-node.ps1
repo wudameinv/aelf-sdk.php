@@ -1,5 +1,8 @@
 wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  C:\Redis.zip ;
 Expand-Archive -Path C:\Redis.zip -DestinationPath C:\Redis ;
+wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.msi ;
+vagrant init hashicorp/bionic64;
+vagrant up;
 wget https://raw.github.com/ServiceStack/redis-windows/master/downloads/vagrant-redis.zip -OutFile  C:\vagrant-redis.zip;
 Expand-Archive -Path C:\vagrant-redis.zip -DestinationPath C:\vagrant-redis ;
 cd c:\vagrant-redis;
