@@ -5,7 +5,8 @@ echo $dir
 apt install unzip
 sudo mkdir -p /home/ubuntu/.ssh/aelf/keys
 sudo mkdir -p /root/.ssh/aelf/keys
-wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip && unzip aelf.zip -d aelf
+cd ../../
+wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip -o aelf.zip && unzip aelf.zip -d aelf
 sudo cp scripts/aelf-node/keys/SD6BXDrKT2syNd1WehtPyRo3dPBiXqfGUj8UJym7YP9W9RynM.json  /home/ubuntu/.ssh/aelf/keys
 sudo cp scripts/aelf-node/keys/SD6BXDrKT2syNd1WehtPyRo3dPBiXqfGUj8UJym7YP9W9RynM.json  /root/.ssh/aelf/keys
 sudo cp scripts/aelf-node/app* aelf/
