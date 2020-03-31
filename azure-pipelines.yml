@@ -14,11 +14,14 @@ jobs:
       cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
       cd ssdb-bin  
       ssdb-server-1.9.4.exe -d ssdb.conf
-      ls -l  C:\hostedtoolcache\windows\dncs\3.1.101\x64\
-      dotnet.exe --version
     displayName: 'start ssdb'
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
+  - script: |
+      cd aelf 
+      dotnet.exe AElf.Launcher.dll
+      netstat -ant 
+    displayName: 'start node'
   - script: |
       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
       php -c /c/tools/php/php.ini
