@@ -14,11 +14,6 @@ jobs:
   - task: DockerInstaller@0
     inputs:
       dockerVersion: '17.09.0-ce'
-  - script: |
-      which docker
-      ls -l /c/hostedtoolcache/windows/docker-stable/17.9.0-ce/x64.complete/
-      
-
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
