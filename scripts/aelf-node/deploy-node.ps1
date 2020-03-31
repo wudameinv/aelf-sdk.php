@@ -28,8 +28,8 @@ ls -l C:\Users\Default\AppData\Local\key\ ;
 wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip -OutFile  aelf.zip ;
 Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
-cp scripts\aelf-node\appsettings.json  aelf\appsettings.json ;
-cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\appsettings.MainChain.TestNet.json ;
+cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
+cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf
 dotnet AElf.Launcher.dll >log.txt 2>&1;
 netstat -ant ;
