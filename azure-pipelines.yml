@@ -16,7 +16,8 @@ jobs:
       dockerVersion: '17.09.0-ce'
   - script: |
       which docker
-      Get-ChildItem -Path /c/hostedtoolcache/windows/docker-stable/ -Recurse –Include deamon.json 
+      ls -l /c/hostedtoolcache/windows/docker-stable/17.9.0-ce/x64/
+
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
