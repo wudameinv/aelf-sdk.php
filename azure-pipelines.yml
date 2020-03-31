@@ -18,7 +18,7 @@ jobs:
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
-      C:\hostedtoolcache\windows\dncs\3.1.101\x64\dotnet.exe .\aelf\AElf.Launcher.dll
+      dotnet .\aelf\AElf.Launcher.dll
       netstat -ant 
     displayName: 'start node'
   - script: |
