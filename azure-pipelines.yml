@@ -5,15 +5,17 @@ jobs:
     vmImage: windows-2019
   variables:
     phpVersion: 7.2
-  services:
-    redis:
-      image: redis
-      ports:
-      - 6379:6379
+  # services:
+  #   redis:
+  #     image: redis
+  #     ports:
+  #     - 6379:6379
   steps:
   - task: DockerInstaller@0
     inputs:
       dockerVersion: '17.09.0-ce'
+  - script: |
+      which docker
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
