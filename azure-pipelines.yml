@@ -13,7 +13,9 @@ jobs:
     displayName: 'deploy a full node' 
   - script: |
       which php
+      pwd
       cat /c/tools/php/php.ini
+      grep openssl /c/tools/php/php.ini
       php -version
     displayName: 'Use PHP version $(phpVersion)'
 #   - script: |
