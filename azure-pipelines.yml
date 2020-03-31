@@ -14,9 +14,9 @@ jobs:
   - script: |
       which php
       pwd
-      cat /c/tools/php/php.ini
+     # cat /c/tools/php/php.ini
       echo "grep"
-      grep -Evn "^$|;" /c/tools/php/php.ini
+      grep -Ev "^$|^;" /c/tools/php/php.ini
       php -version
     displayName: 'Use PHP version $(phpVersion)'
 #   - script: |
