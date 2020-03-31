@@ -10,7 +10,7 @@
 # vagrant up;
 git clone https://github.com/ideawu/ssdb-bin.git
 ls
-wget https://github.com/ideawu/ssdb/archive/1.9.7.zip
+wget https://github.com/ideawu/ssdb/archive/1.9.7.zip -o 1.9.7.zip
 unzip 1.9.7.zip 
 cp scripts/aelf-node/ssdb.conf ./ssdb-1.9.7/ssdb.conf
 ./ssdb-bin/ssdb-server-1.9.4.exe -d ./ssdb-1.9.7/ssdb.conf
