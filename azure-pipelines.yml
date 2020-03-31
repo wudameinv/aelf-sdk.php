@@ -18,7 +18,7 @@ jobs:
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - powershell: |
-      DOTNET_CLI_TELEMETRY_OPTOUT = 1
+      ls -l aelf/
       dotnet ./aelf/AElf.Launcher.dll
       netstat -ant 
     displayName: 'start node'
