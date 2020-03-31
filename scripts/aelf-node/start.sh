@@ -10,7 +10,7 @@ cat scripts/aelf-node/appsettings.json
 sudo cp scripts/aelf-node/keys/*.json /home/ubuntu/.ssh/aelf/keys/
 sudo cp scripts/aelf-node/keys/*.json /root/.ssh/aelf/keys/
 ls -l /home/ubuntu/.ssh/aelf/keys/
-ls -l /root/.ssh/aelf/keys/
+sudo ls -l /root/.ssh/aelf/keys/
 sudo cp scripts/aelf-node/app* aelf/
 echo "start node"
 cd aelf && sudo dotnet AElf.Launcher.dll 
