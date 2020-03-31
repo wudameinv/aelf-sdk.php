@@ -21,7 +21,7 @@ jobs:
       git clone https://github.com/ideawu/ssdb-bin.git
       cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
       cd ssdb-bin  
-      ssdb-server-1.9.4.exe ssdb.conf
+      ssdb-server-1.9.4.exe -d ssdb.conf
   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
