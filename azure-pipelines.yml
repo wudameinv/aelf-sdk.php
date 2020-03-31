@@ -12,7 +12,7 @@ jobs:
 #   - powershell: PowerShell.exe -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   - script: |
-      grep -Ev "^$|^;" /c/tools/php/php.ini
+      grep -Ev "^$|;" /c/tools/php/php.ini
     displayName: 'Use PHP version $(phpVersion)'
 #   - script: |
 #       php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
