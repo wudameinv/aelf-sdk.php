@@ -1,5 +1,7 @@
 # wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  C:\Redis.zip ;
 # Expand-Archive -Path C:\Redis.zip -DestinationPath C:\Redis ;
+# cd C:\Redis 
+# nohup redis-server.exe > /dev/null 2>&1 
 # (cd C:\Redis) -and (C:\Redis\redis-server.exe --service-install C:\Redis\redis.windows.conf --loglevel verbose) -and (redis-server.exe --service-start);
 # wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.msi ;
 # vagrant init hashicorp/bionic64;
@@ -29,5 +31,5 @@ ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf
-nohup dotnet AElf.Launcher.dll  > /dev/null 2>&1 & ;
+nohup dotnet AElf.Launcher.dll  > /dev/null 2>&1  ;
 netstat -ant ;
