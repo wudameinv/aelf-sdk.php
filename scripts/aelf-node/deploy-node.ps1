@@ -1,27 +1,3 @@
-# wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  C:\Redis.zip ;
-# Expand-Archive -Path C:\Redis.zip -DestinationPath C:\Redis ;
-# cd C:\Redis 
-# nohup redis-server.exe > /dev/null 2>&1 
-# (cd C:\Redis) -and (C:\Redis\redis-server.exe --service-install C:\Redis\redis.windows.conf --loglevel verbose) -and (redis-server.exe --service-start);
-# wget https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.msi ;
-# vagrant init hashicorp/bionic64;
-# vagrant up;
-# wget https://raw.github.com/ServiceStack/redis-windows/master/downloads/vagrant-redis.zip -OutFile  C:\vagrant-redis.zip;
-# Expand-Archive -Path C:\vagrant-redis.zip -DestinationPath C:\vagrant-redis ;
-# cd c:\vagrant-redis;
-# vagrant up;
-# git clone https://github.com/ideawu/ssdb-bin.git;
-# ls
-# sleep 3
-# # git clone https://github.com/ideawu/ssdb.git
-# # wget https://github.com/ideawu/ssdb/archive/1.9.4.zip -o 1.9.4.zip
-# # ls
-# # unzip 1.9.4.zip 
-# # ls
-# # sleep 5
-# cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf;
-# cd ssdb-bin  
-# ssdb-server-1.9.4.exe ssdb.conf
 mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
 cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
 ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys ;
@@ -30,6 +6,4 @@ Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
-cd aelf/aelf
-nohup dotnet AElf.Launcher.dll  > $null 2>&1  ;
 netstat -ant ;
