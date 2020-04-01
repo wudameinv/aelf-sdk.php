@@ -2,7 +2,7 @@ jobs:
 - job: build_all_windows
   displayName: Build all tasks (Windows)
   pool:
-    vmImage: windows-2019
+    vmImage: windows-latest
   variables:
     phpVersion: 7.2
   steps:
