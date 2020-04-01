@@ -18,8 +18,9 @@ jobs:
   - powershell: PowerShell.exe  -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
   # - powershell: Start-Job -ScriptBlock {  (cd aelf/aelf) -and (dotnet AElf.Launcher.dll) }
-  - powershell: netstat -an
+
   - powershell: (cd aelf/aelf) -and (dotnet AElf.Launcher.dll)
+  - powershell: netstat -an
   - script: |
       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
       php -c /c/tools/php/php.ini
