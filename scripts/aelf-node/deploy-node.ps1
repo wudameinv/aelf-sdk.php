@@ -6,7 +6,8 @@ Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
-(cd aelf/aelf) -and  (dotnet AElf.Launcher.dll);
+cd aelf/aelf
+dotnet AElf.Launcher.dll
 sleep 300;
 curl -s http://127.0.0.1:8000/api/blockChain/blockHeight
 netstat -ant ;
