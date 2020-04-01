@@ -15,8 +15,9 @@ jobs:
       cd ssdb-bin  
       ssdb-server-1.9.4.exe -d ssdb.conf
     displayName: 'start ssdb'
-  - powershell: PowerShell.exe -WindowStyle Hidden -file scripts/aelf-node/deploy-node.ps1
+  - powershell: PowerShell.exe  -file scripts/aelf-node/deploy-node.ps1
     displayName: 'deploy a full node' 
+  - powershell: Start-Job -ScriptBlock {  dotnet aelf/aelf/AElf.Launcher.dll }
   - script: |
       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
       php -c /c/tools/php/php.ini
