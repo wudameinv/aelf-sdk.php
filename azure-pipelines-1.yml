@@ -1,8 +1,6 @@
 jobs:
 - job: build_all_windows
   displayName: Build all tasks (Windows)
-  pool:
-    vmImage: 'windows-2019'
 resources:
   containers:
   - container: 
@@ -11,6 +9,8 @@ resources:
   - container: 
     image: redis:latest
     options: --hostname redis -p 6379:6379
+pool:
+    vmImage: 'windows-2019'
     variables:
       phpVersion: 7.2
     steps:
