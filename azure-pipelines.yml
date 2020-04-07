@@ -9,7 +9,7 @@ jobs:
   - task: DotNetCoreInstaller@0
     inputs:
        version: '3.1.101'
-  - script: |
+  - powershell: |
       git clone https://github.com/ideawu/ssdb-bin.git
       cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
       cd ssdb-bin  
