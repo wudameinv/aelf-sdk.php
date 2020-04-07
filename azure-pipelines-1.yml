@@ -3,99 +3,94 @@ jobs:
   displayName: Build all tasks (Windows)
   pool:
     vmImage: 'windows-2019'
-  container: mcr.microsoft.com/windows/servercore:ltsc2019
-  variables:
-    phpVersion: 7.2
-  steps:
-  - task: DotNetCoreInstaller@0
-    inputs:
-       version: '3.1.101'
-  - powershell: |
-      git clone https://github.com/ideawu/ssdb-bin.git
-      cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-      cd ssdb-bin  
-      ssdb-server-1.9.4.exe -d ssdb.conf
-    displayName: 'start ssdb'
-  - powershell: PowerShell.exe  -file scripts/aelf-node/deploy-node.ps1
-    displayName: 'deploy a full node' 
-  # - powershell: Start-Job -ScriptBlock {  (cd aelf/aelf) -and (dotnet AElf.Launcher.dll) }
-
-  # - powershell: (cd aelf/aelf) -and (dotnet AElf.Launcher.dll)
-  # - powershell: netstat -an
-  - script: |
-      cp scripts/aelf-node/php.ini /c/tools/php/php.ini
-      php -c /c/tools/php/php.ini
-    displayName: 'Use PHP version $(phpVersion)'
-  - script: |
+resources:
+  containers:
+  - container: 
+    image: aelf/node:latest
+    options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys
+  - container: 
+    image: redis:latest
+    options: --hostname redis -p 6379:6379
+    variables:
+      phpVersion: 7.2
+    steps:
+    - script: |
+        docker.exe cp scripts/aelf-node/appsettings.json aelf:/app/
+        sudo docker exec -it aelf /bin/bash -c 'cd /app && dotnet AElf.Launcher.dll' 
+    - script: |
+        cp scripts/aelf-node/php.ini /c/tools/php/php.ini
+        php -c /c/tools/php/php.ini
+      displayName: 'Use PHP version $(phpVersion)'
+    - script: |
        php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
        php composer-setup.php
        php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
        php composer.phar install --no-interaction --prefer-dist
-    displayName: 'composer install'
-  - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-    displayName: 'test'
-#All tasks on Linux
-- job: build_all_linux
-  displayName: Build all tasks (Linux)
-  services:
-    redis:
-      image: redis
-      ports:
-      - 6379:6379
-  pool:
-    vmImage: ubuntu-18.04
-  variables:
-    phpVersion: 7.2
-  steps:
-  - task: DotNetCoreInstaller@0
-    inputs:
-      version: '3.1.101'
-  - script: cd scripts/aelf-node && bash start.sh
-    displayName: 'Deploy a full node'
-  - script: |
-      sudo update-alternatives --set php /usr/bin/php$(phpVersion)
-      sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
-      sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
-      sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
-      sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-      php -version
-    displayName: 'Use PHP version $(phpVersion)'
-  - script: |
-      php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-      php composer-setup.php
-      sudo mv composer.phar /usr/local/bin/composer
-      composer config -g repo.packagist composer https://packagist.phpcomposer.com
-      composer install --no-interaction --prefer-dist
-    displayName: 'composer install'
-  - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+      displayName: 'composer install'
+    - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+      displayName: 'test'
 
-    displayName: 'test'
-- job: build_all_macos
-  displayName: Build all tasks (macos)
-  pool:
-    vmImage: macos-latest
-  variables:
-    phpVersion: 7.2
-  steps:
-  - task: DotNetCoreInstaller@0
-    inputs:
-      version: '3.1.101'
-  - script: ifconfig
-  - script: cd scripts/aelf-node && bash start-mac.sh
-    displayName: 'Deploy a full node'
-  - script: |
-      sudo update-alternatives --set php /usr/bin/php$(phpVersion)
-      sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
-      sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
-      sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
-      sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-      php -version
-    displayName: 'Use PHP version $(phpVersion)'
-  - script: |
-      php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-      php composer-setup.php
-      sudo mv composer.phar /usr/local/bin/composer
-      composer config -g repo.packagist composer https://packagist.phpcomposer.com
-      composer install --no-interaction --prefer-dist
-  - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
-    displayName: 'test'
+# - job: build_all_linux
+#   displayName: Build all tasks (Linux)
+#   services:
+#     redis:
+#       image: redis
+#       ports:
+#       - 6379:6379
+#   pool:
+#     vmImage: ubuntu-18.04
+#   variables:
+#     phpVersion: 7.2
+#   steps:
+#   - task: DotNetCoreInstaller@0
+#     inputs:
+#       version: '3.1.101'
+#   - script: cd scripts/aelf-node && bash start.sh
+#     displayName: 'Deploy a full node'
+#   - script: |
+#       sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+#       sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+#       sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+#       sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+#       sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+#       php -version
+#     displayName: 'Use PHP version $(phpVersion)'
+#   - script: |
+#       php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+#       php composer-setup.php
+#       sudo mv composer.phar /usr/local/bin/composer
+#       composer config -g repo.packagist composer https://packagist.phpcomposer.com
+#       composer install --no-interaction --prefer-dist
+#     displayName: 'composer install'
+#   - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+
+#     displayName: 'test'
+# - job: build_all_macos
+#   displayName: Build all tasks (macos)
+#   pool:
+#     vmImage: macos-latest
+#   variables:
+#     phpVersion: 7.2
+#   steps:
+#   - task: DotNetCoreInstaller@0
+#     inputs:
+#       version: '3.1.101'
+#   - script: ifconfig
+#   - script: cd scripts/aelf-node && bash start-mac.sh
+#     displayName: 'Deploy a full node'
+#   - script: |
+#       sudo update-alternatives --set php /usr/bin/php$(phpVersion)
+#       sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
+#       sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
+#       sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
+#       sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
+#       php -version
+#     displayName: 'Use PHP version $(phpVersion)'
+#   - script: |
+#       php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+#       php composer-setup.php
+#       sudo mv composer.phar /usr/local/bin/composer
+#       composer config -g repo.packagist composer https://packagist.phpcomposer.com
+#       composer install --no-interaction --prefer-dist
+#   - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
+#     displayName: 'test'
