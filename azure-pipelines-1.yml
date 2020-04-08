@@ -19,6 +19,7 @@ jobs:
       phpVersion: 7.2
     steps:
     - powershell: ls -l 'C:\Program Files\Docker\' 
+    - script: dir/s/b c:\daemon.json
     - powershell: ls -l 'C:\ProgramData\Docker\config\daemon.json'
     # - script: |
     #     git clone https://github.com/ideawu/ssdb-bin.git
