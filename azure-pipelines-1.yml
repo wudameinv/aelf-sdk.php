@@ -6,31 +6,31 @@
   #     options: --hostname redis -p 6379:6379
 jobs:
   - job: build_all_window
-pool:
-  vmImage: 'windows-2019'
-  container: 
-    image: aelf/node:latest
-    # options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch.dll
-    options: --hostname aelf
-  variables:
-    phpVersion: 7.2
-  steps:
-  - script: |
-      git clone https://github.com/ideawu/ssdb-bin.git
-      cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-      cd ssdb-bin  
-      ssdb-server-1.9.4.exe -d ssdb.conf
-  - script: |
-        cp scripts/aelf-node/php.ini /c/tools/php/php.ini
-        php -c /c/tools/php/php.ini
-  - script: |
-      php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-      php composer-setup.php
-      php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
-      php composer.phar install --no-interaction --prefer-dist
-    displayName: 'composer install'
-  - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-    displayName: 'test'
+    pool:
+  # vmImage: 'windows-2019'
+  # container: 
+  #   image: aelf/node:latest
+  #   # options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch.dll
+  #   options: --hostname aelf
+    variables:
+      phpVersion: 7.2
+    steps:
+    - script: |
+        git clone https://github.com/ideawu/ssdb-bin.git
+        cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+        cd ssdb-bin  
+        ssdb-server-1.9.4.exe -d ssdb.conf
+    - script: |
+          cp scripts/aelf-node/php.ini /c/tools/php/php.ini
+          php -c /c/tools/php/php.ini
+    - script: |
+        php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+        php composer-setup.php
+        php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
+        php composer.phar install --no-interaction --prefer-dist
+      displayName: 'composer install'
+    - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+      displayName: 'test'
 
 # - job: build_all_linux
 #   displayName: Build all tasks (Linux)
