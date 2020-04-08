@@ -8,6 +8,9 @@ jobs:
   - job: build_all_window
     pool:
       vmImage: 'windows-2019'
+      container: 
+        image: redis:latest
+        options: --hostname redis -p 6379:6379
   # container: 
   #   image: aelf/node:latest
   #   # options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch.dll
@@ -15,11 +18,11 @@ jobs:
     variables:
       phpVersion: 7.2
     steps:
-    - script: |
-        git clone https://github.com/ideawu/ssdb-bin.git
-        cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-        cd ssdb-bin  
-        ssdb-server-1.9.4.exe -d ssdb.conf
+    # - script: |
+    #     git clone https://github.com/ideawu/ssdb-bin.git
+    #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+    #     cd ssdb-bin  
+    #     ssdb-server-1.9.4.exe -d ssdb.conf
     - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
       displayName: 'deploy a full node'
     - script: |
