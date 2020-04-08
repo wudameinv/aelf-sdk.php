@@ -7,5 +7,5 @@ ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf
-Start-Job -ScriptBlock {  dotnet AElf.Launcher.dll }
+dotnet AElf.Launcher.dll ;
 netstat -ant ;
