@@ -9,7 +9,7 @@ jobs:
     pool:
       vmImage: 'windows-2019'
     container: 
-      image: redis:latest
+      image: aelf/node:latest
       options: --hostname redis
   # container: 
   #   image: aelf/node:latest
