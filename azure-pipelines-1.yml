@@ -5,12 +5,12 @@
   #     image: redis:latest
   #     options: --hostname redis -p 6379:6379
 jobs:
-  - job: 
+  - job: build_all_window
 pool:
   vmImage: 'windows-2019'
   container: 
     image: aelf/node:latest
-    options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch
+    options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch.dll
 
   variables:
     phpVersion: 7.2
