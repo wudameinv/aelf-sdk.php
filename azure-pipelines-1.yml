@@ -6,7 +6,7 @@
   #     options: --hostname redis -p 6379:6379
 jobs:
   - job: build_all_window
-    pool:
+    # pool:
   # vmImage: 'windows-2019'
   # container: 
   #   image: aelf/node:latest
