@@ -19,6 +19,7 @@ jobs:
       phpVersion: 7.2
     steps:
     - powershell: ls -l 'C:\Program Files\Docker\' 
+    - powershell: ls -l 'C:\ProgramData\Docker\config\daemon.json'
     # - script: |
     #     git clone https://github.com/ideawu/ssdb-bin.git
     #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
