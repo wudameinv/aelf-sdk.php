@@ -10,6 +10,6 @@ COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/
 COPY ./scripts/aelf-node/keys/* C:/Users/VssAdministrator/AppData/Local/aelf/keys
 RUN  ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys\;
 
-ENTRYPOINT  "dotnet c:\aelf\aelf\AElf.Launcher.dll"
+# ENTRYPOINT  "dotnet c:\aelf\aelf\AElf.Launcher.dll"
 
 
