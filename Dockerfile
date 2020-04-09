@@ -13,9 +13,9 @@ RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/a
     Expand-Archive -Path c:\aelf.zip -DestinationPath c:\aelf ; \
     dir c:\ ; \
     cat c:\aelf\aelf\appsettings.json; \
-    mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys ; 
+    mkdir -p C:\Users\ContainerAdministrator\AppData\Local\aelf\keys ; 
 COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
-COPY ./scripts/aelf-node/keys/* C:/Users/VssAdministrator/AppData/Local/aelf/keys
+COPY ./scripts/aelf-node/keys/* C:\Users\ContainerAdministrator\AppData\Local\aelf\keys
 
 RUN cd c:/aelf/aelf;\
     C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
