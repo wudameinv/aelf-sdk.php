@@ -1,6 +1,6 @@
-# docker build -f redis/Dockerfile -t redis:3.2 .
+docker build redis/Dockerfile -t smithyuk/windows-redis .
+docker run -p 6379:6379 -ti smithyuk/windows-redis
 docker images
-docker run -id --name redis -p 6379:6379 smithyuk/windows-redis:latest
 sleep 30
 docker ps -a
 netstat -an
