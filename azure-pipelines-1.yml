@@ -11,11 +11,11 @@ jobs:
     # - task: UseNode@1
     #   inputs:
     #     checkLatest: true
-    # - script: |
-    #     git clone https://github.com/ideawu/ssdb-bin.git
-    #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-    #     cd ssdb-bin  
-    #     ssdb-server-1.9.4.exe -d ssdb.conf
+    - script: |
+        git clone https://github.com/ideawu/ssdb-bin.git
+        cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+        cd ssdb-bin  
+        ssdb-server-1.9.4.exe -d ssdb.conf
     - powershell: powershell.exe -file build.ps1
       displayName: 'build.ps1'
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
