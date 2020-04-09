@@ -1,4 +1,4 @@
-FROM microsoft/iis:windowsservercore
+FROM microsoft/windowsservercore
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
