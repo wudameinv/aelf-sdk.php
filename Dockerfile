@@ -5,9 +5,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 RUN mkdir -p c:\ssdb;
 COPY ssdb-bin c:/ssdb/
 RUN ls -l c:/ssdb ;\
-    echo "" > c:\ssdb\log.txt ;\
     cd c:\ssdb;\
-    .\ssdb-server-1.9.4.exe -d ssdb.conf;\
+    netstat -an;\
+    .\ssdb-server-1.8.1-native_x64.exe -d ssdb.conf;\
     netstat -an;
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
 
