@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 COPY dotnet-install.ps1 /
 COPY ssdb-bin c:/
-RUN cd ssdb-bin;\
+RUN ls -l c:/ ;\
+    cd ssdb-bin;\
     ssdb-server-1.9.4.exe -d ssdb.conf;\
     netstat -an;
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
