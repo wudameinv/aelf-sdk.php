@@ -4,22 +4,20 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 COPY dotnet-install.ps1 /
 # RUN Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -Proxy $env:HTTP_PROXY -ProxyUseDefaultCredentials -OutFile 'dotnet-install.ps1';
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
-RUN dotnet --version;
 # RUN powershell.exe -file c:\dotnet-install.ps1 -InstallDir c:\;\
 #     ls -l 'C:\Program Files\dotnet\' ;\
 #     ls -l C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\;
 
 
-# RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ; \
-#     Expand-Archive -Path c:\aelf.zip -DestinationPath c:\aelf ; \
-#     dir c:\ ; \
-#     cat c:\aelf\aelf\appsettings.json; \
-#     mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys ; 
-# COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
-# COPY ./scripts/aelf-node/keys/* C:/Users/VssAdministrator/AppData/Local/aelf/keys
+RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ; \
+    Expand-Archive -Path c:\aelf.zip -DestinationPath c:\aelf ; \
+    dir c:\ ; \
+    cat c:\aelf\aelf\appsettings.json; \
+    mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys ; 
+COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
+COPY ./scripts/aelf-node/keys/* C:/Users/VssAdministrator/AppData/Local/aelf/keys
 
-# RUN cd c:/aelf/aelf;\
-#     dotnet --version; \
-#     dotnet AElf.Launcher.dll ;
+RUN cd c:/aelf/aelf;\
+    C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
 
 
