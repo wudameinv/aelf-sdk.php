@@ -16,7 +16,7 @@ jobs:
     #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
     #     cd ssdb-bin  
     #     ssdb-server-1.9.4.exe -d ssdb.conf
-    - powershell: powershell.exe -file scripts/aelf-node/build.ps1
+    - powershell: (cd scripts/aelf-node/) -and (powershell.exe -file build.ps1)
       displayName: 'build.ps1'
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
