@@ -1,20 +1,9 @@
-  # resources:
-  #   containers:
- 
-  #   - container: 
-  #     image: redis:latest
-  #     options: --hostname redis -p 6379:6379
 jobs:
   - job: build_all_window
     pool:
       vmImage: 'windows-2019'
-
-#     container: 
-#       image: aelf/node:latest
-#       options: --hostname redis
     container: 
       image: mcr.microsoft.com/windows/servercore:ltsc2019
-    # options: --hostname aelf -p 8001:8001 -v scripts/aelf-node/keys:/root/.local/share/aelf/keys -v scripts/aelf-node/appsettings.json:/app/appsettings.json dotnet /app/AElf.Launch.dll
       options: --hostname aelf
     variables:
       phpVersion: 7.2
