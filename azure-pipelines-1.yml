@@ -19,6 +19,7 @@ jobs:
         cd ssdb-bin  
         cat ssdb.conf
         ssdb-server-1.9.4.exe -d ssdb.conf  
+        sleep 30
         netstat -an
     # - powershell: (cd redis) -and (powershell.exe -file test.ps1)
     # - powershell: powershell.exe -file build.ps1
