@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
-# WORKDIR /Users/ContainerAdministrator/Downloads ;
+RUN ls /Users/ContainerAdministrator/Downloads ;
 RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ;
 RUN Expand-Archive -Path c:\aelf.zip -DestinationPath c:\aelf  ;
 RUN pwd ;
