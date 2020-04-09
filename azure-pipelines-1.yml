@@ -2,20 +2,22 @@ jobs:
   - job: build_all_window
     pool:
       vmImage: 'windows-2019'
-    container: 
-      image: mcr.microsoft.com/windows/servercore:ltsc2019
-      options: --hostname aelf
+    # container: 
+    #   image: mcr.microsoft.com/windows/servercore:ltsc2019
+    #   options: --hostname aelf
     variables:
       phpVersion: 7.2
     steps:
-    - task: UseNode@1
-      inputs:
-        checkLatest: true
+    # - task: UseNode@1
+    #   inputs:
+    #     checkLatest: true
     # - script: |
     #     git clone https://github.com/ideawu/ssdb-bin.git
     #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
     #     cd ssdb-bin  
     #     ssdb-server-1.9.4.exe -d ssdb.conf
+    - powershell: powershell.exe -file scripts/aelf-node/update-docker.ps1
+      displayName: 'install docker'
     - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
       displayName: 'deploy a full node'
     - script: |
