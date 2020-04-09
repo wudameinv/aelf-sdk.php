@@ -6,6 +6,7 @@ RUN wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100
 #     cd c:\redis\ ; \
 #     c:\redis\redis-server.exe redis.windows.conf;
 #     ls ;
- CMD "c:\redis\redis\redis-server.exe c:\redis\redis\redis.windows.conf"
+#  CMD "c:\redis\redis\redis-server.exe c:\redis\redis\redis.windows.conf"
+
    
     
