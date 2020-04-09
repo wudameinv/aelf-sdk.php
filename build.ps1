@@ -1,2 +1,2 @@
-docker build -t php  .
+docker build -t aelf/node:test  .
 docker images 
