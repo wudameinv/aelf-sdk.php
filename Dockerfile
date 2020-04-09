@@ -5,9 +5,10 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 COPY dotnet-install.ps1 /
 # RUN Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -Proxy $env:HTTP_PROXY -ProxyUseDefaultCredentials -OutFile 'dotnet-install.ps1';
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
+RUN dotnet --version;
 # RUN powershell.exe -file c:\dotnet-install.ps1 -InstallDir c:\;\
 #     ls -l 'C:\Program Files\dotnet\' ;\
-    ls -l C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\;
+#     ls -l C:\Users\ContainerAdministrator\AppData\Local\Microsoft\dotnet\;
 
 
 # RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ; \
