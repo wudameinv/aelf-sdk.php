@@ -3,7 +3,8 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 # RUN cd 'C:\Program Files\dotnet\'
 COPY dotnet-install.ps1 /
-RUN c:\dotnet-install.ps1;
+RUN powershell.exe -file c:\dotnet-install.ps1;\
+    dotnet --version;
 
 
 # RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ; \
