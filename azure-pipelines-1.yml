@@ -19,8 +19,8 @@ jobs:
     #     ssdb-server-1.9.4.exe -d ssdb.conf -s restart 
     #     netstat -an
     - powershell: powershell.exe -file redis/build.ps1
-    - powershell: powershell.exe -file build.ps1
-      displayName: 'build.ps1'
+    # - powershell: powershell.exe -file build.ps1
+    #   displayName: 'build.ps1'
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
     # - script: |
