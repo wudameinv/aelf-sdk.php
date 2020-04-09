@@ -5,11 +5,11 @@ COPY dotnet-install.ps1 /
 
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
 
-RUN git clone https://github.com/ideawu/ssdb-bin.git ;
-COPY scripts/aelf-node/ssdb.conf ssdb-bin/ 
-RUN cd ssdb-bin  ;\
-    ssdb-server-1.9.4.exe -d ssdb.conf;\
-    netstat -ant;
+# RUN git clone https://github.com/ideawu/ssdb-bin.git ;
+# COPY scripts/aelf-node/ssdb.conf ssdb-bin/ 
+# RUN cd ssdb-bin  ;\
+#     ssdb-server-1.9.4.exe -d ssdb.conf;\
+#     netstat -ant;
 
 RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip  -OutFile  c:\aelf.zip ; \
     Expand-Archive -Path c:\aelf.zip -DestinationPath c:\aelf ; \
