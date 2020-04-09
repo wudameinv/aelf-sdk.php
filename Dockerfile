@@ -2,7 +2,10 @@ FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 # RUN wget https://download.visualstudio.microsoft.com/download/pr/5aad9c2c-7bb6-45b1-97e7-98f12cb5b63b/6f6d7944c81b043bdb9a7241529a5504/dotnet-sdk-3.1.102-win-x64.exe -O C:/dotnet.exe
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 COPY dotnet-install.ps1 /
-
+COPY ssdb-bin c:/
+RUN cd ssdb-bin;\
+    ssdb-server-1.9.4.exe -d ssdb.conf;\
+    netstat -an;
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
 
 # RUN git clone https://github.com/ideawu/ssdb-bin.git ;
@@ -19,7 +22,8 @@ RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/a
 COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
 COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/aelf/keys/
 
-RUN cd c:/aelf/aelf;\
+RUN netstat -an\
+    cd c:/aelf/aelf;\
     C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
 
 
