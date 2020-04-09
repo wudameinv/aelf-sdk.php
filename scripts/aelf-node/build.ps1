@@ -1,1 +1,1 @@
-docker build -t php .
+docker build -t php -f ./Dockerfiler .
