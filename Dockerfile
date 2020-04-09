@@ -12,7 +12,7 @@ RUN wget https://download.visualstudio.microsoft.com/download/pr/5aad9c2c-7bb6-4
 
 
 # Expose the Site
-Port 8001
+EXPOSE 8001
 
 # Change working directory to web root
 WORKDIR /opt
