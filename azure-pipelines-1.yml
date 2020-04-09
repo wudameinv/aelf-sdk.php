@@ -17,8 +17,8 @@ jobs:
         git clone https://github.com/ideawu/ssdb-bin.git
         cd ssdb-bin  
         ls 
-        ssdb-server-1.9.4.exe  ssdb.conf  
-        netstat -an
+        ssdb-server-1.9.4.exe -d ssdb.conf  
+        ps -ef
     # - powershell: (cd redis) -and (powershell.exe -file test.ps1)
     # - powershell: powershell.exe -file build.ps1
     #   displayName: 'build.ps1'
