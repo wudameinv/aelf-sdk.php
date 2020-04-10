@@ -15,5 +15,5 @@ services:
 #     volumes:
 #       - d:/:c:/
   redis:
-    image: rkttu/redis-windows:latest
+    image: micdenny/redis-windows:latest
 #     image: windows-redis:latest
