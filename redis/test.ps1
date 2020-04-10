@@ -1,5 +1,5 @@
 docker build -f redis/Dockerfile -t windows-redis .
-docker run -p 6379:6379 -ti windows-redis
+docker run -p 6379:6379 -d windows-redis
 netstat -an
 # docker run  -itd windows-redis "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe"
 # docker ps
