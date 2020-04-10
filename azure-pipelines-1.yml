@@ -23,7 +23,7 @@ jobs:
     #     netstat -an
 
     # - powershell: systeminfo
-    - powershell: docker pull redis:3.2
+    - powershell:  ls -l %programdata%\docker\config\daemon.json
     # - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
     - powershell: docker-compose up -d 
