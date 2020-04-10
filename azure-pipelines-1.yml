@@ -5,17 +5,17 @@ jobs:
     variables:
       phpVersion: 7.2
     steps:   
-    - script: |
-        git clone https://github.com/ideawu/ssdb-bin.git
-        cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-        cd ssdb-bin  
-        cat ssdb.conf
-        ssdb-server-1.9.4.exe -d ssdb.conf  
-        cat log.txt
-        netstat -an
+    # - script: |
+    #     git clone https://github.com/ideawu/ssdb-bin.git
+    #     cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+    #     cd ssdb-bin  
+    #     cat ssdb.conf
+    #     ssdb-server-1.9.4.exe -d ssdb.conf  
+    #     cat log.txt
+    #     netstat -an
 
     # - powershell: systeminfo
-    - powershell: .\redis\test.ps1
+    # - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
     - powershell: docker-compose up -d 
     - powershell: docker ps
