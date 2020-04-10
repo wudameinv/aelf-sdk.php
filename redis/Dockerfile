@@ -6,6 +6,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 # RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 
 COPY ./redis/redis.conf C:/
+RUN ls -l c:/
 # EXPOSE 6379/tcp
 # ENTRYPOINT ["C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe", "c:\redis.conf"]   
 LABEL Description=Redis Vendor=MSOpenTech Version=3.2
