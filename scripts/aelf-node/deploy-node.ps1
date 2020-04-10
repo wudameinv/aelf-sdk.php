@@ -1,3 +1,10 @@
+git clone https://github.com/ideawu/ssdb-bin.git
+cp ssdb.conf ssdb-bin/ssdb.conf
+cd ssdb-bin  
+cat ssdb.conf
+ssdb-server-1.9.4.exe -d ssdb.conf  
+cat log.txt
+netstat -an
 mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
 cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
 ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys ;
