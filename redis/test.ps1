@@ -1,6 +1,6 @@
 docker build -f redis/Dockerfile -t windows-redis .
 docker ps -a
-docker run -d --name redis -p 6379:6379  windows-redis
+docker run -itd --name redis   windows-redis
 docker ps -a 
 echo "sleep 30"
 sleep 30
