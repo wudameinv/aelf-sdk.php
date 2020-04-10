@@ -10,8 +10,9 @@ services:
       - 81:80
     depends_on:
       - redis
+
+  redis:
+    image: windows-redis:latest
     ports:
       - 6379:6379
       - 82:80
-  redis:
-    image: windows-redis:latest
