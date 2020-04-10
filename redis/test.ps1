@@ -1,9 +1,11 @@
 docker build -f redis/Dockerfile -t windows-redis .
-docker run  -itd windows-redis "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe"
-docker ps
-docker images
-
-echo "sleep 30"
-sleep 30
-docker ps -a
+docker run -p 6379:6379 -ti windows-redis
 netstat -an
+# docker run  -itd windows-redis "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe"
+# docker ps
+# docker images
+
+# echo "sleep 30"
+# sleep 30
+# docker ps -a
+# netstat -an
