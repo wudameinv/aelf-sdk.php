@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
-COPY dotnet-install.ps1 /
+COPY ./dotnet-install.ps1 /
 
 RUN ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' ;
 
@@ -12,7 +12,7 @@ RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/a
 COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
 COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/aelf/keys/
 
-RUN netstat -an\
+RUN netstat -an ;\
     cd c:/aelf/aelf;\
     C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
 
