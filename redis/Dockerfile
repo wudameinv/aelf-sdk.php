@@ -15,4 +15,3 @@ EXPOSE 6379/tcp
 RUN Invoke-WebRequest -Method Get -Uri https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile redis.zip ;\
 Expand-Archive redis.zip . ; \
 Remove-Item redis.zip -Force;
-CMD ["cmd" "/S" "/C" "redis-server --maxmemory %maxmemory% --protected-mode %protected-mode%"]
