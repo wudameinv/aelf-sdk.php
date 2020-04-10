@@ -21,5 +21,5 @@ RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 # COPY ./redis/redis.conf C://
 
 EXPOSE 6379
-ENTRYPOINT ["redis-server.exe", "C://redis.conf"]   
+ENTRYPOINT ["redis-server.exe", ""]   
     
