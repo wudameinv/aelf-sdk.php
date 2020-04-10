@@ -23,6 +23,7 @@ jobs:
     #     netstat -an
 
     # - powershell: systeminfo
+    - powershell: ls -l C:\Users\ContainerAdministrator\
     - powershell:  ls -l %programdata%\docker\config\daemon.json
     # - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
