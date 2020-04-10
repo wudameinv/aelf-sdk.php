@@ -26,6 +26,9 @@ jobs:
     - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
     - powershell: docker-compose up -d 
+    - powershell: docker ps
+    - powershell: sleep 60
+    - powershell: docker ps -a
     # - script: |
     #     netstat -an
     #     sleep 300
