@@ -24,7 +24,7 @@ jobs:
 
     # - powershell: systeminfo
     - powershell: docker ps
-    - powershell: .\redis\test.ps1
+    # - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
     - powershell: docker-compose up -d 
     - script: netstat -an
