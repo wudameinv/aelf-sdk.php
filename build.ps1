@@ -1,4 +1,5 @@
 docker build -t aelf/node:test  .
+netstat -an
 docker images 
 docker run -d --name aelf -p 8001:8001  aelf/node:test 
 # AElf.Launcher.dll
