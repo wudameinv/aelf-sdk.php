@@ -20,4 +20,4 @@ Expand-Archive redis.zip . ; \
 Remove-Item redis.zip -Force;\
 ls -l c:\;
 
-# CMD ["redis-server c:/redis.conf"]
+CMD ["redis-server"]
