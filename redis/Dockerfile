@@ -1,4 +1,4 @@
-# # FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
 # FROM alexellisio/redis-windows:3.2
 # # SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 # # RUN wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  c:\Redis.zip ;\
@@ -10,7 +10,7 @@
 # # #  CMD "c:\redis\redis\redis-server.exe c:\redis\redis\redis.windows.conf"
 # # CMD [ "c:\redis\redis\redis-server.exe", "c:\redis\redis\redis.windows.conf" ]
 
-FROM microsoft/windowsservercore
+# FROM microsoft/windowsservercore
 
 RUN powershell -NoProfile -Command \
     "Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression"
