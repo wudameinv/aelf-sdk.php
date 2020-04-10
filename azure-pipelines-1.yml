@@ -125,12 +125,12 @@ jobs:
   pool:
       vmImage: 'windows-2019'
 
-  strategy:
-    matrix:
-      window2019:
-        containerResource: windows
+  # strategy:
+  #   matrix:
+  #     window2019:
+  #       containerResource: windows
 
-  container: $[ variables['containerResource'] ]
-
+  # container: $[ variables['containerResource'] ]
+  container: mcr.microsoft.com/windows/servercore:ltsc2019
   steps:
   - powershell: ./scripts/aelf-node/deploy-node.ps1
