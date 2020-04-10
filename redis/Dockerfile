@@ -11,7 +11,6 @@
 # # CMD [ "c:\redis\redis\redis-server.exe", "c:\redis\redis\redis.windows.conf" ]
 
 FROM microsoft/windowsservercore
-MAINTAINER smithyuk1@live.co.uk
 
 RUN powershell -NoProfile -Command \
     "Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression"
