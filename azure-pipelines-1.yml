@@ -133,6 +133,4 @@ jobs:
         cd ssdb-bin  
         cat ssdb.conf
         ssdb-server-1.9.4.exe -d ssdb.conf  
-        cat log.txt
-        netstat -an
   - powershell: ./scripts/aelf-node/deploy-node.ps1
