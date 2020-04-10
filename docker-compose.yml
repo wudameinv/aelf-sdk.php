@@ -7,10 +7,12 @@ services:
     ports:
       - 6801:6800
       - 8001:8001
+      - 81:80
     depends_on:
       - redis
     command:  redis-server c:/redis.conf
     ports:
       - 6379:6379
+      - 82:80
   redis:
     image: windows-redis:latest
