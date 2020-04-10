@@ -15,10 +15,10 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 RUN Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression;
 
 RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
-RUN ls c:/ ;
+RUN ls c:// ;
 
-COPY ./redis/redis.conf C:/
+COPY ./redis/redis.conf C://
 
 EXPOSE 6379
-ENTRYPOINT ["redis-server.exe", "C:/redis.conf"]   
+ENTRYPOINT ["redis-server.exe", "C://redis.conf"]   
     
