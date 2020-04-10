@@ -115,32 +115,20 @@
 #       composer install --no-interaction --prefer-dist
 #   - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
 #     displayName: 'test'
-
-
 resources:
   containers:
-  - container: u14
-    image: ubuntu:14.04
-
-  - container: u16
-    image: ubuntu:16.04
-
-  - container: u18
-    image: ubuntu:18.04
+  - container: windows
+    image: windows-2019
 
 jobs:
 - job: RunInContainer
   pool:
-    vmImage: 'ubuntu-16.04'
+      vmImage: 'windows-2019'
 
   strategy:
     matrix:
-      ubuntu14:
-        containerResource: u14
-      ubuntu16:
-        containerResource: u16
-      ubuntu18:
-        containerResource: u18
+      window2019:
+        containerResource: windows
 
   container: $[ variables['containerResource'] ]
 
