@@ -2,9 +2,9 @@ jobs:
   - job: build_all_window
     pool:
       vmImage: 'windows-2019'
-    # container: 
-    #   image: mcr.microsoft.com/windows/servercore:ltsc2019
-    #   options: --hostname aelf
+    container: 
+      image: mcr.microsoft.com/windows/servercore:ltsc2019
+      options: --hostname aelf
     variables:
       phpVersion: 7.2
     steps:
@@ -23,12 +23,9 @@ jobs:
     #     netstat -an
 
     # - powershell: systeminfo
-    - powershell: ls -l C:\Users\ContainerAdministrator\
-    - powershell:  ls -l %programdata%\docker\config\daemon.json
-    # - powershell: .\redis\test.ps1
+    - powershell: .\redis\test.ps1
     - powershell: .\build.ps1
     - powershell: docker-compose up -d 
-    - script: netstat -an
     - powershell: docker ps
     - script: netstat -an
     - powershell: sleep 60
