@@ -19,14 +19,14 @@ jobs:
         cd ssdb-bin  
         cat ssdb.conf
         ssdb-server-1.9.4.exe -d ssdb.conf  
-        sleep 60
+        sleep 200
         cat log.txt
         netstat -an
-    - powershell: systeminfo
-    - powershell: .\redis\test.ps1
+    # - powershell: systeminfo
+    # - powershell: .\redis\test.ps1
    
-    # - powershell: powershell.exe -file build.ps1
-    #   displayName: 'build.ps1'
+    - powershell: powershell.exe -file build.ps1
+      displayName: 'build.ps1'
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
     # - script: |
