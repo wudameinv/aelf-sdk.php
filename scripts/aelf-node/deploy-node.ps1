@@ -1,5 +1,5 @@
 git clone https://github.com/ideawu/ssdb-bin.git
-cp ../scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+cp C:/__w/1/s/scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
 cd ssdb-bin  
 cat ssdb.conf
 ssdb-server-1.9.4.exe -d ssdb.conf  
