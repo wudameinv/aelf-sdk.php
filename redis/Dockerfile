@@ -4,7 +4,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 # RUN Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression;
 # RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 
-# COPY ./redis/redis.conf C:/
+COPY ./redis/redis.conf C:/
 # EXPOSE 6379/tcp
 # ENTRYPOINT ["C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe", "c:\redis.conf"]   
 LABEL Description=Redis Vendor=MSOpenTech Version=3.2
@@ -15,3 +15,4 @@ EXPOSE 6379/tcp
 RUN Invoke-WebRequest -Method Get -Uri https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile redis.zip ;\
 Expand-Archive redis.zip . ; \
 Remove-Item redis.zip -Force;
+CMD ["redis-server c:/redis.conf"]
