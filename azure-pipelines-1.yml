@@ -22,6 +22,7 @@ jobs:
     #    sleep 30
      #   netstat -an
      - powershell: .\redis\test.ps1
+     - powershell: netstat -an
     # - powershell: powershell.exe -file build.ps1
     #   displayName: 'build.ps1'
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
