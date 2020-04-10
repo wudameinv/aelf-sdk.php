@@ -20,6 +20,7 @@ jobs:
         cat ssdb.conf
         ssdb-server-1.9.4.exe -d ssdb.conf  
         sleep 60
+        cat log.txt
         netstat -an
     - powershell: systeminfo
     - powershell: .\redis\test.ps1
