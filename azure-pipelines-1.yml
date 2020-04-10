@@ -15,14 +15,10 @@ jobs:
     # - script: ipconfig
     - script: |
         git clone https://github.com/ideawu/ssdb-bin.git
-        git clone https://github.com/ideawu/ssdb.git
         cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
         cd ssdb-bin  
         cat ssdb.conf
         ssdb-server-1.9.4.exe -d ssdb.conf  
-        ../ssdb/tools/ssdb-cli.bat -p 6379 
-        sleep 200
-
         cat log.txt
         netstat -an
 
