@@ -1,4 +1,5 @@
 docker build -f redis/Dockerfile -t windows-redis .
+docker ps -a
 docker run -d --name redis -p 6379:6379  windows-redis
 echo "Web server running at:"
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" redis
