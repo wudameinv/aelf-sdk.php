@@ -1,13 +1,13 @@
-jobs:
-  - job: build_all_window
-    pool:
-      vmImage: 'windows-2019'
-    container: 
-      image: mcr.microsoft.com/windows/servercore:ltsc2019
-      options: --hostname aelf
-    variables:
-      phpVersion: 7.2
-    steps:
+# jobs:
+#   - job: build_all_window
+#     pool:
+#       vmImage: 'windows-2019'
+#     container: 
+#       image: mcr.microsoft.com/windows/servercore:ltsc2019
+#       options: --hostname aelf
+#     variables:
+#       phpVersion: 7.2
+#     steps:
     # - task: UseNode@1
     #   inputs:
     #     checkLatest: true
@@ -22,16 +22,16 @@ jobs:
     #     cat log.txt
     #     netstat -an
 
-    # - powershell: systeminfo
-    - powershell: .\redis\test.ps1
-    - powershell: .\build.ps1
-    - powershell: docker-compose up -d 
-    - powershell: docker ps
-    - script: netstat -an
-    - powershell: sleep 60
-    - script: netstat -an
-    - powershell: docker ps -a
-    # - script: |
+    # # - powershell: systeminfo
+    # - powershell: .\redis\test.ps1
+    # - powershell: .\build.ps1
+    # - powershell: docker-compose up -d 
+    # - powershell: docker ps
+    # - script: netstat -an
+    # - powershell: sleep 60
+    # - script: netstat -an
+    # - powershell: docker ps -a
+    # # - script: |
     #     netstat -an
     #     sleep 300
     #     netstat -an
@@ -115,3 +115,34 @@ jobs:
 #       composer install --no-interaction --prefer-dist
 #   - script: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
 #     displayName: 'test'
+
+
+resources:
+  containers:
+  - container: u14
+    image: ubuntu:14.04
+
+  - container: u16
+    image: ubuntu:16.04
+
+  - container: u18
+    image: ubuntu:18.04
+
+jobs:
+- job: RunInContainer
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  strategy:
+    matrix:
+      ubuntu14:
+        containerResource: u14
+      ubuntu16:
+        containerResource: u16
+      ubuntu18:
+        containerResource: u18
+
+  container: $[ variables['containerResource'] ]
+
+  steps:
+  - script: printenv
