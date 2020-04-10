@@ -127,10 +127,10 @@ jobs:
   container: mcr.microsoft.com/windows/servercore:ltsc2019
   steps:
   - powershell: ./dotnet-install.ps1 -InstallDir '~/.dotnet' -Version '3.1.102' 
-  - script: |
-        git clone https://github.com/ideawu/ssdb-bin.git
-        cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-        cd ssdb-bin  
-        cat ssdb.conf
-        ssdb-server-1.9.4.exe -d ssdb.conf  
+  # - script: |
+  #       git clone https://github.com/ideawu/ssdb-bin.git
+  #       cp scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
+  #       cd ssdb-bin  
+  #       cat ssdb.conf
+  #       ssdb-server-1.9.4.exe -d ssdb.conf  
   - powershell: ./scripts/aelf-node/deploy-node.ps1
