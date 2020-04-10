@@ -16,7 +16,7 @@ RUN Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invo
 
 RUN "C:\ProgramData\chocolatey\choco install -y redis-64"
 
-COPY redis.conf C:\\redis.conf
+COPY redis\redis.conf C:\\redis.conf
 
 EXPOSE 6379
 ENTRYPOINT ["redis-server.exe", "C:\\redis.conf"]   
