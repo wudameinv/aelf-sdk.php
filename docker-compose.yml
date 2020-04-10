@@ -10,7 +10,6 @@ services:
       - 81:80
     depends_on:
       - redis
-    command:  redis-server c:/redis.conf
     ports:
       - 6379:6379
       - 82:80
