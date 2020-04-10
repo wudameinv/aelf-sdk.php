@@ -9,10 +9,11 @@ services:
       - 8001:8001
     depends_on:
       - redis
-    command: redis-server --appendonly yes
+#     command: redis-server --appendonly yes
     ports:
       - 6379:6379
 #     volumes:
 #       - d:/:c:/
   redis:
-    image: windows-redis:latest
+    image: rkttu/redis-windows:latest
+#     image: windows-redis:latest
