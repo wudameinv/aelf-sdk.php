@@ -21,7 +21,7 @@
 
 
 
-FROM mcr.microsoft.com/windows/nanoserver
+FROM mcr.microsoft.com/windows/nanoserver:1809
 
 LABEL Description="Redis" Vendor="MSOpenTech" Version="3.2"
 
