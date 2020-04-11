@@ -16,8 +16,8 @@ jobs:
 
     # - powershell: systeminfo
     - powershell: .\redis\test.ps1
-    - powershell: .\build.ps1
-    - powershell: docker-compose up -d 
+    # - powershell: .\build.ps1
+    # - powershell: docker-compose up -d 
     - powershell: docker ps
     - script: netstat -an
     - powershell: sleep 60
@@ -25,17 +25,17 @@ jobs:
     - powershell: docker ps -a
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
-    - script: |
-          cp scripts/aelf-node/php.ini /c/tools/php/php.ini
-          php -c /c/tools/php/php.ini
-    - script: |
-        php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-        php composer-setup.php
-        php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
-        php composer.phar install --no-interaction --prefer-dist
-      displayName: 'composer install'
-    - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-      displayName: 'test'
+    # - script: |
+    #       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
+    #       php -c /c/tools/php/php.ini
+    # - script: |
+    #     php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
+    #     php composer-setup.php
+    #     php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
+    #     php composer.phar install --no-interaction --prefer-dist
+    #   displayName: 'composer install'
+    # - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
+    #   displayName: 'test'
 
 
 # resources:
