@@ -18,4 +18,4 @@ Expand-Archive redis.zip . ; \
 Remove-Item redis.zip -Force;
 EXPOSE 6379/tcp
 # RUN c:/redis-server.exe c:/redis.conf ;
-CMD ["c:\redis-server.exe c:\redis.conf"]
+CMD ["c:\\redis-server.exe c:\\redis.conf"]
