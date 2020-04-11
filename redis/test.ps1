@@ -1,7 +1,7 @@
 pwd
 docker build -f redis/Dockerfile -t windows-redis .
 docker images
-docker run -itd -p 6379:6379 --name redis windows-redis "c:\redis-server.exe"
+docker run -itd -p 6379:6379 --name redis windows-redis "c:\redis-server.exe -appendonly yes"
 
 # docker ps -a
 # docker run -itd --name redis  windows-redis 
