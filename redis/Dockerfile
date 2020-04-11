@@ -31,9 +31,7 @@ ENV protected-mode=yes
 EXPOSE 6379
 
 WORKDIR /redis
-
-RUN    wget https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -O redis.zip ; \
-	Expand-Archive redis.zip . ; \
-	Remove-Item redis.zip -Force;
+COPY redis/Redis-x64-3.2.100.zip c:/
+RUN   Expand-Archive Redis-x64-3.2.100.zip redis ;
 
 CMD redis-server --maxmemory %maxmemory% --protected-mode %protected-mode%
