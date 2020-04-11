@@ -2,7 +2,7 @@
 # FROM mcr.microsoft.com/windows/servercore:ltsc2019
 # # FROM mcr.microsoft.com/windows/servercore/iis
 # # # FROM alexellisio/redis-windows:3.2
-# SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 # RUN Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression;
 # RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 
