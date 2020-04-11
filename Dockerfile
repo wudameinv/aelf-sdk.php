@@ -11,7 +11,7 @@ RUN wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/a
     mkdir -p C:\Users\ContainerAdministrator\AppData\Local\aelf\keys ; 
 COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf/ 
 COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/aelf/keys/
-
+CMD ["dotnet", "c:/aelf/aelf/AElf.Launcher.dll"]
 # RUN netstat -an ;\
 #     cd c:/aelf/aelf;\
 #     C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
