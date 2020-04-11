@@ -1,7 +1,7 @@
 cd redis
 docker build  -t windows-redis .
 docker images
-docker run --name redis -p 8888:6379 -d  windows-redis 
+docker run --name redis -p 8888:6379 -itd  windows-redis "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe"
 
 # docker ps -a
 # docker run -itd --name redis  windows-redis 
