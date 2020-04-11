@@ -22,7 +22,7 @@
 
 
 FROM mcr.microsoft.com/windows/nanoserver:1809
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
+# SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 LABEL Description="Redis" Vendor="MSOpenTech" Version="3.2"
 
 ENV maxmemory=500MB
