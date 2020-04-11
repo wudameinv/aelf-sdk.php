@@ -30,8 +30,7 @@ ENV protected-mode=yes
 
 EXPOSE 6379
 
-WORKDIR /redis
-COPY redis/Redis-x64-3.2.100.zip c:/
-RUN   Expand-Archive Redis-x64-3.2.100.zip redis ;
-
+#WORKDIR /redis
+COPY redis/redis c:/
+RUN ls -l c:/ ;
 CMD redis-server --maxmemory %maxmemory% --protected-mode %protected-mode%
