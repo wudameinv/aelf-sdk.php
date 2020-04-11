@@ -32,5 +32,5 @@ EXPOSE 6379
 
 #WORKDIR /redis
 COPY redis/redis c:/
-RUN ls -l c:/ ;
+# RUN ls -l c:/ ;
 CMD redis-server --maxmemory %maxmemory% --protected-mode %protected-mode%
