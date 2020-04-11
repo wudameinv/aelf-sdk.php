@@ -6,9 +6,9 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 RUN Invoke-Webrequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression;
 RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 
-COPY ./redis/redis.conf C:/
+# COPY ./redis/redis.conf C:/
 EXPOSE 6379/tcp
-ENTRYPOINT [ "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe", "c:\redis.conf" ]   
+ENTRYPOINT [ "C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe" ]   
 # LABEL Description=Redis Vendor=MSOpenTech Version=3.2
 # ENV maxmemory=500MB
 
