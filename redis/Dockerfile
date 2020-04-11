@@ -18,4 +18,4 @@ RUN Invoke-WebRequest -Method Get -Uri https://github.com/MSOpenTech/redis/relea
 Expand-Archive redis.zip . ; \
 Remove-Item redis.zip -Force;
 EXPOSE 6379
-CMD ["redis-server","-appendonly yes"]
+RUN redis-server
