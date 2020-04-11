@@ -1,7 +1,7 @@
-pwd
-docker build -f redis/Dockerfile -t windows-redis .
+cd redis
+docker build  -t windows-redis .
 docker images
-docker run --name redis -p 6379:6379 -d  windows-redis 
+docker run --name redis -p 8888:8888 -d  windows-redis 
 
 # docker ps -a
 # docker run -itd --name redis  windows-redis 
