@@ -7,7 +7,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 # RUN "C:\ProgramData\chocolatey\choco install -y redis-64";
 
 COPY ./redis/redis.conf C:/
-RUN ls -l c:/
 # EXPOSE 6379/tcp
 # ENTRYPOINT ["C:\ProgramData\chocolatey\lib\redis-64\redis-server.exe", "c:\redis.conf"]   
 LABEL Description=Redis Vendor=MSOpenTech Version=3.2
@@ -16,7 +15,6 @@ ENV maxmemory=500MB
 # WORKDIR C:\redis
 RUN Invoke-WebRequest -Method Get -Uri https://github.com/MSOpenTech/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile redis.zip ;\
 Expand-Archive redis.zip . ; \
-Remove-Item redis.zip -Force;\
-ls -l c:/ ;
-EXPOSE 6379
-RUN redis-server
+Remove-Item redis.zip -Force;
+EXPOSE 6379/tcp
+RUN c:/redis-server.exe c:/redis.conf ;
