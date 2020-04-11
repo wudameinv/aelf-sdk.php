@@ -1,4 +1,4 @@
-
+cd redis
 docker build  -t windows-redis .
 docker images
 docker run --name redis -p 6379:6379 -itd  windows-redis
