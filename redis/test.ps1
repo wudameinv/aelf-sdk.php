@@ -1,7 +1,7 @@
 
 # docker build  -t windows-redis .
 docker images
-docker run --name redis -p 6379:6379 -itd  parv0888/redis-windows:latest 
+docker run --name redis -p 6379:6379 -itd  micdenny/redis-windows
 docker ps 
 sleep 30
 # docker ps -a
