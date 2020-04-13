@@ -5,6 +5,8 @@ Start-service hns
 Start-Service docker
 docker network prune
 docker run -d --name aelf -p 8001:8001  aelf/node:test 
+sleep 30
+docker logs aelf
 # # AElf.Launcher.dll
 
 # echo "sleep 60"
