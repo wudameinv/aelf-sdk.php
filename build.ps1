@@ -2,7 +2,7 @@
 # docker history  mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019 --format "table {{.ID}}\t{{.CreatedBy}}" --no-trunc
 docker build -t aelf/node:test  .
 docker run -itd --name aelf    -w c:/aelf/aelf-node aelf/node:test 
-docker exec -it aelf powershell.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
+winpty docker exec -it aelf powershell.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
 # #dotnet c:/aelf/aelf-node/AElf.Launcher.dll
 # sleep 30
 # docker logs aelf
