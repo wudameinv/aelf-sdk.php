@@ -1,5 +1,5 @@
 docker build -t aelf/node:test  .
-docker run -d --name aelf -p 8001:8001  aelf/node:test dotnet c:/aelf/aelf-node/AElf.Launcher.dll
+docker run -itd --name aelf -p 8001:8001  aelf/node:test dotnet c:/aelf/aelf-node/AElf.Launcher.dll
 sleep 30
 docker logs aelf
 # # AElf.Launcher.dll
