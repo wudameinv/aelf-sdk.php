@@ -12,8 +12,7 @@ RUN wget http://18.203.235.132:8000/aelf-node.zip  -OutFile  c:\aelf.zip ; \
     mkdir -p C:\Users\ContainerAdministrator\AppData\Local\aelf\keys ; 
 COPY ./scripts/aelf-node/appsettings.json c:/aelf/aelf-node/ 
 COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/aelf/keys/
-RUN C:\\ServiceMonitor.exe
-CMD [ "dotnet", "c:/aelf/aelf-node/AElf.Launcher.dll" ]
+# CMD [ "dotnet", "c:/aelf/aelf-node/AElf.Launcher.dll" ]
 # CMD ["dotnet", "c:/aelf/aelf-node/AElf.Launcher.dll"]
 # RUN netstat -an ;\
 #     cd c:/aelf/aelf-node;\
