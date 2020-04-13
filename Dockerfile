@@ -15,5 +15,5 @@ COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/ae
 # RUN netstat -an ;\
 #     cd c:/aelf/aelf-node;\
 #     C:\Users\ContainerAdministrator\.dotnet\dotnet.exe AElf.Launcher.dll ;
-CMD C:\Users\ContainerAdministrator\.dotnet\dotnet.exe c:\aelf\aelf-node\AElf.Launcher.dll
+CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 
 
