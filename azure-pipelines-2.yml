@@ -8,7 +8,7 @@ jobs:
     - powershell: .\build.ps1
       displayName: 'build.ps1'
     - powershell: docker ps
-    - script: netstat -an
+    - script: docker exec -it aelf cmd.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
     - powershell: sleep 60
     - script: netstat -an
     - powershell: docker ps -a
