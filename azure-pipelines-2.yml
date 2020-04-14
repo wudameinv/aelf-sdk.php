@@ -7,11 +7,12 @@ jobs:
     steps:   
     - powershell: .\build.ps1
       displayName: 'build.ps1'
-    # - script: docker exec -it aelf powershell.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
+    - powershell: docker exec -it aelf powershell.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
     # - powershell: sleep 30
-    - powershell: docker-compose up -d
+    # - powershell: docker-compose up -d
     - powershell: docker ps -a
     - script: netstat -an
+    - script: sleep 30
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
     # - script: |
