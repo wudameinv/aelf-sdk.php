@@ -15,7 +15,7 @@ jobs:
     - powershell: docker cp  ./scripts/aelf-node/keys/SD6BXDrKT2syNd1WehtPyRo3dPBiXqfGUj8UJym7YP9W9RynM.json aelf:/
     - powershell: docker ps
       #    - powershell: docker exec -it aelf powershell -c "winpty dotnet c:/aelf/aelf-node/AElf.Launcher.dll"
-    - powershell: docker exec -it aelf bash -c "./start.ps1"
+    - powershell: winpty docker exec -it aelf bash -c "./start.ps1"
     - script: netstat -an
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
