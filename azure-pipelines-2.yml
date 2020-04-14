@@ -5,15 +5,7 @@ jobs:
     variables:
       phpVersion: 7.2
     steps:   
-    - powershell: docker images
-      # - powershell: .\build.ps1
-      #displayName: 'build.ps1'
-    - powershell: ./build.ps1
-      #- powershell: docker cp  ./start.ps1 aelf:/
-      # - powershell: docker cp  ./dotnet-install.ps1 aelf:/
-      #  - powershell: docker cp  ./scripts/aelf-node/appsettings.json aelf:/
-      #    - powershell: docker cp  ./scripts/aelf-node/keys/SD6BXDrKT2syNd1WehtPyRo3dPBiXqfGUj8UJym7YP9W9RynM.json aelf:/
-    - powershell: docker ps
+    - powershell: ./scripts/aelf-node/deploy-node.ps1
       #    - powershell: docker exec -it aelf powershell -c "winpty dotnet c:/aelf/aelf-node/AElf.Launcher.dll"
       #    - powershell: winpty docker exec -it aelf bash -c "./start.ps1"
       #- script: netstat -an
