@@ -1,18 +1,18 @@
 version: '3'
 services:
   aelf-node:
-    working_dir: c:/aelf/aelf
+    working_dir: c:/aelf/aelf-node
     image: aelf/node:test
-    command: C:/Users/ContainerAdministrator/.dotnet/dotnet.exe c:/aelf/aelf/AElf.Launcher.dll
+    command: C:/Users/ContainerAdministrator/.dotnet/dotnet.exe c:/aelf/aelf-node/AElf.Launcher.dll
     ports:
       - 6801:6800
       - 8001:8001
       - 81:80
-    depends_on:
-      - redis
+#     depends_on:
+#       - redis
 
-  redis:
-    image: windows-redis:latest
-    ports:
-      - 6379:6379
-      - 82:80
+#   redis:
+#     image: windows-redis:latest
+#     ports:
+#       - 6379:6379
+#       - 82:80
