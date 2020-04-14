@@ -23,8 +23,7 @@
 #           - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
 #             displayName: 'test'
 jobs:
-  - deployment: DeployWeb
-    displayName: 'dotnet dll'
+  - job: build_all_window
     pool:
       vmImage: 'windows-2019'
       steps:
