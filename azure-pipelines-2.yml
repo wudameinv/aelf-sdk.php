@@ -8,9 +8,8 @@ jobs:
     - powershell: docker images
     - powershell: .\build.ps1
       displayName: 'build.ps1'
-    - powershell: docker exec -it aelf powershell.exe -c 'dotnet c:/aelf/aelf-node/AElf.Launcher.dll'
     # - powershell: sleep 30
-    # - powershell: docker-compose up -d
+    - powershell: docker-compose up -d
     - powershell: docker ps -a
     - script: netstat -an
     - script: sleep 30
