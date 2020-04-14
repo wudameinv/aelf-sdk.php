@@ -1,5 +1,5 @@
-# FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
-FROM microsoft/aspnetcore-build:1.0-2.0
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+#FROM microsoft/aspnetcore-build:1.0-2.0
 #FROM mcr.microsoft.com/windows/nanoserver:1809
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"] ;
 COPY ./dotnet-install.ps1 /
@@ -21,3 +21,4 @@ COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/ae
 EXPOSE 80
 
 ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
+CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 
