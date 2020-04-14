@@ -3,7 +3,7 @@ services:
   aelf-node:
     working_dir: c:/aelf/aelf-node
     image: aelf/node:test
-    command: C:/Users/ContainerAdministrator/.dotnet/dotnet.exe c:/aelf/aelf-node/AElf.Launcher.dll
+    #    command: C:/Users/ContainerAdministrator/.dotnet/dotnet.exe c:/aelf/aelf-node/AElf.Launcher.dll
     ports:
       - 6801:6800
       - 8001:8001
