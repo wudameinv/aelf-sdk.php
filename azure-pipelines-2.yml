@@ -12,7 +12,7 @@ jobs:
     - powershell: docker cp  ./start.ps1 aelf:/
     - powershell: docker cp  ./dotnet-install.ps1 aelf:/
     - powershell: docker cp  ./scripts/aelf-node/appsettings.json aelf:/
-    - powershell: docker cp  ./scripts/aelf-node/keys/* aelf:/
+    - powershell: docker cp  ./scripts/aelf-node/keys/SD6BXDrKT2syNd1WehtPyRo3dPBiXqfGUj8UJym7YP9W9RynM.json aelf:/
     - powershell: docker ps
     - powershell: docker exec -it aelf powershell -c "dotnet c:/aelf/aelf-node/AElf.Launcher.dll"
     - script: netstat -an
