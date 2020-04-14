@@ -1,6 +1,6 @@
 jobs:
-  - deployment: dotnet dll
-    displayName: dotnet dll
+  - deployment: DeployWeb
+    displayName: 'dotnet dll'
     pool:
       vmImage: 'windows-2019'
     environment: 'test'
