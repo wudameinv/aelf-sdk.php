@@ -5,6 +5,7 @@ jobs:
     variables:
       phpVersion: 7.2
     steps:   
+    - powershell: Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
     - powershell: PowerShell.exe -WindowStyle Hidden -file ./scripts/aelf-node/deploy-node.ps1
     - script: |
           netstat -an \
