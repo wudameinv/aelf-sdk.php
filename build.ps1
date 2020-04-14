@@ -1,4 +1,5 @@
-C:\Users\ContainerAdministrator\.dotnet\dotnet.exe c:\aelf\aelf-node\AElf.Launcher.dll
+dotnet c:\aelf\aelf-node\AElf.Launcher.dll
+# C:\Users\ContainerAdministrator\.dotnet\dotnet.exe
 # net start w3svc
 # docker history  mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019 --format "table {{.ID}}\t{{.CreatedBy}}" --no-trunc
 #docker build -t aelf/node:test  .
