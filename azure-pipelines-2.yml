@@ -8,7 +8,7 @@ jobs:
       runOnce:
         deploy:
           steps:
-          - powershell: powershell.exe -file ./scripts/aelf-node/deploy-node.ps1
+          - powershell: powershell.exe -file .\scripts\aelf-node\deploy-node.ps1
           - script: |
               cp scripts/aelf-node/php.ini /c/tools/php/php.ini
               php -c /c/tools/php/php.ini
