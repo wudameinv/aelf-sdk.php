@@ -20,5 +20,5 @@ COPY ./scripts/aelf-node/keys/* C:/Users/ContainerAdministrator/AppData/Local/ae
 #CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 
 EXPOSE 80
 
-ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
+#ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
 CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 

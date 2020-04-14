@@ -8,11 +8,9 @@ jobs:
     - powershell: docker images
     - powershell: .\build.ps1
       displayName: 'build.ps1'
-    # - powershell: sleep 30
-    - powershell: docker-compose up -d
+    - powershell: sleep 30
     - powershell: docker ps -a
     - script: netstat -an
-    - script: sleep 30
     # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
     #   displayName: 'deploy a full node'
     # - script: |
