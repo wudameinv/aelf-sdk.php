@@ -13,16 +13,18 @@ jobs:
     #     Dockerfile: './Dockerfile'
     #     tags: 'test'
     # - powershell: docker images   
-    - powershell: docker version
-    - task: CmdLine@2
-      inputs:
-        script: |
-          docker run -itd --name aelf -p 8001:8000   node:test
-          docker ps -a
-          sleep 30
-          docker ps -a
+    # - powershell: docker version
+    # - task: CmdLine@2
+    #   inputs:
+    #     script: |
+    #       docker run -itd --name aelf -p 8001:8000   node:test
+    #       docker ps -a
+    #       sleep 30
+    #       docker ps -a
     # - powershell: ./test.ps1 
-    # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
+    - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
+    - powershell: Get-Job
+    - powershell: Get-Job
     # - script: |
     #       netstat -an \
     #       sleep 30 \
