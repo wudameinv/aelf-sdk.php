@@ -15,7 +15,9 @@ jobs:
     # - powershell: docker images   
     - task: CmdLine@2
       inputs:
-        script: 'docker run -itd --name aelf -p 8001:8000   aelf/node:latest'
+        script: |
+          docker pull aelf/node:latest
+          docker run -itd --name aelf -p 8001:8000   aelf/node:latest
     # - powershell: ./test.ps1 
     # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # - script: |
