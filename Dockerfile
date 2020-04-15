@@ -18,6 +18,6 @@ COPY ./build.ps1 .
 #CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 
 EXPOSE 8001
 EXPOSE 80
-ENTRYPOINT [ "dotnet","c:/aelf/aelf-node/AElf.Launcher.dll" ]
+ENTRYPOINT [ "C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll" ]
 #ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
 # CMD ["C:\Users\ContainerAdministrator\.dotnet\dotnet.exe","c:\aelf\aelf-node\AElf.Launcher.dll"] 
