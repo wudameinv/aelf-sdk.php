@@ -15,7 +15,7 @@ ls -l aelf\aelf-node\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf-node
-Start-Job -ScriptBlock {& dotnet AElf.Launcher.dll} ;
+# Start-Job -ScriptBlock {& dotnet AElf.Launcher.dll} ;
 # cd aelf/aelf-node ;
 # dotnet AElf.Launcher.dll ;
 # Start-Job -ScriptBlock {ping 8.8.8.8} ;
