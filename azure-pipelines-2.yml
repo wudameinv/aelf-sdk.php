@@ -33,7 +33,7 @@ jobs:
       inputs:
         Action: 'Create'
         ServiceName: 'aelf'
-        BinPath: 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
+        BinPath: './test.ps1'
         DisplayName: 'aelf'
     - task: ManageWindowService@1
       inputs:
