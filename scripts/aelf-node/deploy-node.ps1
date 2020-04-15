@@ -19,6 +19,9 @@ Start-Job -ScriptBlock {dotnet c:\aelf\aelf-node\AElf.Launcher.dll} ;
 # dotnet c:\aelf\aelf-node\AElf.Launcher.dll
 sleep 10
 Get-Job
+netstat -an
+sleep 30 
+netstat -an
 # C:\Users\ContainerAdministrator\.dotnet\dotnet.exe
 # cd aelf/aelf-node
 # dotnet AElf.Launcher.dll ;
