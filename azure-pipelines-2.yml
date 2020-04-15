@@ -29,16 +29,16 @@ jobs:
     #       docker ps -a
     # - powershell: ./test.ps1 
     - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
-    # - script: sc create aelf binPath= .\run.bat start= auto
+    - script: sc create aelf binPath= .\run.bat start= auto
     # - script: sc start aelf
 
-    - task: ManageWindowService@1
-      inputs:
-        Action: 'Create'
-        ServiceName: 'aelf'
-        BinPath: ' ./run.bat'
-        DisplayName: 'aelf'
-    - script: netstat -an
+    # - task: ManageWindowService@1
+    #   inputs:
+    #     Action: 'Create'
+    #     ServiceName: 'aelf'
+    #     BinPath: '.\run.bat'
+    #     DisplayName: 'aelf'
+    - script: sc query 
     - script: |
         sleep 60
         netstat -an
