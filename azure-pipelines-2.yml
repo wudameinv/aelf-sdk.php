@@ -5,14 +5,17 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - task: Docker@2
+    # - task: Docker@2
+    #   inputs:
+    #     containerRegistry: 'aelf'
+    #     repository: 'aelf'
+    #     command: 'build'
+    #     Dockerfile: './Dockerfile'
+    #     tags: 'test'
+    # - powershell: docker images   
+    - task: CmdLine@2
       inputs:
-        containerRegistry: 'aelf'
-        repository: 'aelf/node'
-        command: 'build'
-        Dockerfile: './Dockerfile'
-        tags: 'test'
-    - powershell: docker images   
+        script: 'docker run -itd --name aelf -p 8001:8000   aelf/node:latest'
     # - powershell: ./test.ps1 
     # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # - script: |
