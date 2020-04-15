@@ -14,7 +14,7 @@ Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json ;
-cd aelf/aelf-node
-dotnet AElf.Launcher.dll ;
+# cd aelf/aelf-node
+# dotnet AElf.Launcher.dll ;
 ##Start-Job { & dotnet AElf.Launcher.dll }
 #netstat -ant ;
