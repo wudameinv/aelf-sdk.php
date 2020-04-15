@@ -35,6 +35,10 @@ jobs:
         ServiceName: 'aelf'
         BinPath: 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
         DisplayName: 'aelf'
+    - task: ManageWindowService@1
+      inputs:
+        Action: 'Start'
+        ServicesName: 'aelf'
     # - script: |
     #       netstat -an \
     #       sleep 30 \
