@@ -5,14 +5,15 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'aelf'
-        repository: 'node'
-        command: 'build'
-        Dockerfile: './Dockerfile'
-        tags: 'test'
-    - powershell: docker images   
+    # - task: Docker@2
+    #   inputs:
+    #     containerRegistry: 'aelf'
+    #     repository: 'node'
+    #     command: 'build'
+    #     Dockerfile: './Dockerfile'
+    #     tags: 'test'
+    # - powershell: docker images   
+    - powershell: docker version
     - task: CmdLine@2
       inputs:
         script: |
