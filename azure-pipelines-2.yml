@@ -33,7 +33,7 @@ jobs:
       inputs:
         Action: 'Create'
         ServiceName: 'aelf'
-        BinPath: './test1.ps1'
+        BinPath: './run.bat'
         DisplayName: 'aelf'
     - task: ManageWindowService@1
       inputs:
