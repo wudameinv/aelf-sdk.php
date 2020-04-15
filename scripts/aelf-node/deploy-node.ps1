@@ -11,10 +11,11 @@ ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys ;
 #wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip -OutFile  aelf.zip ;
 wget http://18.203.235.132:8000/aelf-node.zip -OutFile  aelf.zip ; 
 Expand-Archive -Path aelf.zip -DestinationPath aelf ;
-ls -l aelf\ ;
+ls -l aelf\aelf-node\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json ;
-Start-Job -ScriptBlock {dotnet c:\aelf\aelf-node\AElf.Launcher.dll} ;
+Start-Job -ScriptBlock {C:\Users\ContainerAdministrator\.dotnet\dotnet.exe c:\aelf\aelf-node\AElf.Launcher.dll} ;
+Start-Job -ScriptBlock {ping 8.8.8.8} ;
 sleep 10
 Get-Job
 # C:\Users\ContainerAdministrator\.dotnet\dotnet.exe
