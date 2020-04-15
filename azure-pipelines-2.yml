@@ -5,7 +5,14 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - powershell: ./test.ps1 
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'aelf'
+        repository: 'aelf/node:latest'
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+    - powershell: docker images   
+    # - powershell: ./test.ps1 
     # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # - script: |
     #       netstat -an \
