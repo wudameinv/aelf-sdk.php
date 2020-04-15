@@ -30,6 +30,8 @@ jobs:
     # - powershell: ./test.ps1 
     - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     - script: sc create aelf binPath= .\run.bat start= auto
+    - script: sc start aelf
+    - script: netstat -an
     # - task: ManageWindowService@1
     #   inputs:
     #     Action: 'Create'
