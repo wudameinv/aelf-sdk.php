@@ -1,10 +1,17 @@
 jobs:
+
   - job: build_all_window
     pool:
       vmImage: 'windows-2019'
     variables:
       phpVersion: 7.2
     steps: 
+    - task: ManageWindowService@1
+      inputs:
+        Action: 'Create'
+        ServiceName: 'aelf'
+        BinPath: 'c:\aelf\aelf-node\AElf.Launcher.dll'
+        DisplayName: 'aelf'
     # - task: Docker@2
     #   inputs:
     #     containerRegistry: 'aelf'
