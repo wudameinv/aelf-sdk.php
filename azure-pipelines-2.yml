@@ -6,7 +6,7 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - powershell: for /r c:\ %i in (daemon.json) do @echo %i
+    # - powershell: for /r c:\ %i in (daemon.json) do @echo %i
     # - powershell: docker run -d --rm --platform linux busybox echo hello_world
     # - script: docker ps -a
     # - script: sleep 30
@@ -15,22 +15,22 @@ jobs:
     #   inputs:
     #     Action: 'Start'
     #     ServicesName: 'aelf'
-    # - task: Docker@2
-    #   inputs:
-    #     containerRegistry: 'aelf'
-    #     repository: 'node'
-    #     command: 'build'
-    #     Dockerfile: './Dockerfile'
-    #     tags: 'test'
-    # - powershell: docker images   
-    # - powershell: docker version
-    # - task: CmdLine@2
-    #   inputs:
-    #     script: |
-    #       docker run -itd --name aelf -p 8001:8000   node:test
-    #       docker ps -a
-    #       sleep 30
-    #       docker ps -a
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'aelf'
+        repository: 'node'
+        command: 'build'
+        Dockerfile: './Dockerfile'
+        tags: 'test'
+    - powershell: docker images   
+    - powershell: docker version
+    - task: CmdLine@2
+      inputs:
+        script: |
+          docker run -itd --rm --platform linux --name aelf -p 8001:8000   node:test
+          docker ps -a
+          sleep 30
+          docker ps -a
     # - powershell: ./test.ps1 
     # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # - script: sc create aelf binPath= .\run.bat start= auto
