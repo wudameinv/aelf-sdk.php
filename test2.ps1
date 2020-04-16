@@ -9,5 +9,4 @@ ls -l 'c:\Program Files\Linux Containers'
 Invoke-WebRequest -UseBasicParsing -OutFile dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
 $Env:LCOW_SUPPORTED=1
 $env:LCOW_API_PLATFORM_IF_OMITTED="linux"
-# .\dockerd.exe -D --experimental -H "npipe:////./pipe//docker_lcow" --data-root c:\lcow
-# docker  -H "npipe:////./pipe//docker_lcow" run -itd  -p 8001:8000   aelf/node:latest
+(.\dockerd.exe -D --experimental -H "npipe:////./pipe//docker_lcow" --data-root c:\lcow) -and (docker -H "npipe:////./pipe//docker_lcow" run -itd  -p 8001:8000   aelf/node:latest)
