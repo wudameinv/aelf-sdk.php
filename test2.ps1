@@ -1,9 +1,9 @@
 $progressPreference = 'silentlyContinue'
-mkdir 'c:\ProgramFiles\Linux Containers'
+mkdir 'c:\Program Files\Linux Containers'
 
 Invoke-WebRequest -UseBasicParsing -OutFile linuxkit.zip https://github.com/friism/linuxkit/releases/download/preview-1/linuxkit.zip
-Expand-Archive linuxkit.zip -DestinationPath 'c:\ProgramFiles\Linux Containers\'
-ls -l 'c:\ProgramFiles\Linux Containers\'
+Expand-Archive linuxkit.zip -DestinationPath 'c:\Program Files\Linux Containers\'
+ls -l 'c:\Program Files\Linux Containers\'
 rm linuxkit.zip
 Invoke-WebRequest -UseBasicParsing -OutFile dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
 $Env:LCOW_SUPPORTED=1
