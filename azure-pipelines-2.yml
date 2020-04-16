@@ -22,7 +22,7 @@ jobs:
     - script: |
         net stop docker
         net start docker
-    - powershell: ./test2.ps1
+    - powershell: PowerShell.exe  -file ./test2.ps1
     # - powershell: docker -v
     # - powershell: service docker restart
     # - powershell: docker info
