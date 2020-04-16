@@ -38,7 +38,7 @@ jobs:
     - task: CmdLine@2
       inputs:
         script: |
-          docker  -H "npipe:////./pipe//docker_lcow" run -itd  --name aelf -p 8001:8000   aelf/node:latest
+          docker  -H "npipe:////./pipe//docker_lcow" run -itd  -p 8001:8000   aelf/node:latest
           docker ps -a
           sleep 30
           docker ps -a
