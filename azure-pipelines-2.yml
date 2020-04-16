@@ -7,7 +7,9 @@ jobs:
       phpVersion: 7.2
     steps: 
     - script: docker run --rm --platform linux busybox echo hello_world
-
+    - script: docker ps -a
+    - script: sleep 30
+    - script: docker ps -a
     # - task: ManageWindowService@1
     #   inputs:
     #     Action: 'Start'
