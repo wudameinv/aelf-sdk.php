@@ -1,3 +1,5 @@
-{ 
-    "experimental": true 
+{
+    "insecure-registries":[],
+    "debug":true,
+    "experimental": true
 }
