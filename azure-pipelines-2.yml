@@ -6,7 +6,7 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - script: docker run --rm busybox echo hello_world
+    - script: docker run --rm --platform linux busybox echo hello_world
 
     # - task: ManageWindowService@1
     #   inputs:
