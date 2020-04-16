@@ -19,9 +19,9 @@ jobs:
     - powershell: cp daemon.json C:\ProgramData\docker\config\
     - powershell: cat C:\ProgramData\docker\config\daemon.json
       displayName: 'cat daemon.json'
-    - powershell: docker -v
-    - powershell: service docker restart
-    - powershell: docker info
+    # - powershell: docker -v
+    # - powershell: service docker restart
+    # - powershell: docker info
     # - task: Docker@2
     #   inputs:
     #     containerRegistry: 'aelf'
