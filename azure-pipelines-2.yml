@@ -6,10 +6,11 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - powershell: docker run -d --rm --platform linux busybox echo hello_world
-    - script: docker ps -a
-    - script: sleep 30
-    - script: docker ps -a
+    - script: for /r c:\ %i in (daemon.json) do @echo %i
+    # - powershell: docker run -d --rm --platform linux busybox echo hello_world
+    # - script: docker ps -a
+    # - script: sleep 30
+    # - script: docker ps -a
     # - task: ManageWindowService@1
     #   inputs:
     #     Action: 'Start'
@@ -31,8 +32,8 @@ jobs:
     #       sleep 30
     #       docker ps -a
     # - powershell: ./test.ps1 
-    - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
-    - script: sc create aelf binPath= .\run.bat start= auto
+    # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
+    # - script: sc create aelf binPath= .\run.bat start= auto
     # - script: sc start aelf
 
     # - task: ManageWindowService@1
