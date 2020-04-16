@@ -1,7 +1,8 @@
 $progressPreference = 'silentlyContinue'
 mkdir 'c:\Program Files\Linux Containers'
 Invoke-WebRequest -UseBasicParsing -OutFile preview-1.zip https://github.com/friism/linuxkit/archive/preview-1.zip
-# Invoke-WebRequest -UseBasicParsing -OutFile linuxkit.zip https://github.com/friism/linuxkit/releases/download/preview-1/linuxkit.zip
+Invoke-WebRequest -UseBasicParsing -OutFile linuxkit.zip https://github.com/friism/linuxkit/releases/download/preview-1/linuxkit.zip
+Expand-Archive preview-1.zip -DestinationPath 'c:\Program Files\Linux Containers'
 Expand-Archive preview-1.zip -DestinationPath 'c:\Program Files\Linux Containers'
 mv 'c:\Program Files\Linux Containers\linuxkit-preview-1\*'  'c:\Program Files\Linux Containers\'
 ls -l 'c:\Program Files\Linux Containers'
