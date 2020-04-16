@@ -8,4 +8,4 @@ rm linuxkit.zip
 Invoke-WebRequest -UseBasicParsing -OutFile dockerd.exe https://master.dockerproject.org/windows/x86_64/dockerd.exe
 $Env:LCOW_SUPPORTED=1
 $env:LCOW_API_PLATFORM_IF_OMITTED="linux"
-.\dockerd.exe -D --experimental -H "npipe:////./pipe//docker_lcow" --data-root c:\lcow
+.\dockerd.exe -D --experimental -H "npipe:////./pipe//docker_lcow" --data-root c:\lcow"
