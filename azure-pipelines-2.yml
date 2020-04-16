@@ -35,13 +35,13 @@ jobs:
     #     tags: 'test'
     # - powershell: docker images   
     # - powershell: docker version --platform linux
-    - task: CmdLine@2
-      inputs:
-        script: |
-          docker  -H "npipe:////./pipe//docker_lcow" run -itd  -p 8001:8000   aelf/node:latest
-          docker ps -a
-          sleep 30
-          docker ps -a
+    # - task: CmdLine@2
+    #   inputs:
+    #     script: |
+    #       docker  -H "npipe:////./pipe//docker_lcow" run -itd  -p 8001:8000   aelf/node:latest
+    #       docker ps -a
+    #       sleep 30
+    #       docker ps -a
     # # # - powershell: ./test.ps1 
     # # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # # - script: sc create aelf binPath= .\run.bat start= auto
