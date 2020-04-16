@@ -30,11 +30,11 @@ jobs:
     #     Dockerfile: './Dockerfile'
     #     tags: 'test'
     # - powershell: docker images   
-    # - powershell: docker version
+    # - powershell: docker version --platform linux
     - task: CmdLine@2
       inputs:
         script: |
-          docker run -itd --rm --platform linux --name aelf -p 8001:8000   aelf/node:latest
+          docker run -itd --rm  --name aelf -p 8001:8000   aelf/node:latest
           docker ps -a
           sleep 30
           docker ps -a
