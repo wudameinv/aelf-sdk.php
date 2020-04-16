@@ -9,4 +9,3 @@ Invoke-WebRequest -UseBasicParsing -OutFile dockerd.exe https://master.dockerpro
 $Env:LCOW_SUPPORTED=1
 $env:LCOW_API_PLATFORM_IF_OMITTED="linux"
 .\dockerd.exe -D --experimental -H "npipe:////./pipe//docker_lcow" --data-root c:\lcow
-docker -H "npipe:////./pipe//docker_lcow" run -tid busybox
