@@ -19,38 +19,39 @@ jobs:
     - powershell: cp daemon.json C:\ProgramData\docker\config\
     - powershell: cat C:\ProgramData\docker\config\daemon.json
       displayName: 'cat daemon.json'
+    - powershell: service docker restart
     - powershell: docker info
-    - task: Docker@2
-      inputs:
-        containerRegistry: 'aelf'
-        repository: 'node'
-        command: 'build'
-        Dockerfile: './Dockerfile'
-        tags: 'test'
-    - powershell: docker images   
-    - powershell: docker version
-    - task: CmdLine@2
-      inputs:
-        script: |
-          docker run -itd --rm --platform linux --name aelf -p 8001:8000   node:test
-          docker ps -a
-          sleep 30
-          docker ps -a
-    # # - powershell: ./test.ps1 
-    # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
-    # - script: sc create aelf binPath= .\run.bat start= auto
-    # - script: sc start aelf
-
-    # - task: ManageWindowService@1
+    # - task: Docker@2
     #   inputs:
-    #     Action: 'Create'
-    #     ServiceName: 'aelf'
-    #     BinPath: '.\run.bat'
-    #     DisplayName: 'aelf'
-    - script: sc query 
-    - script: |
-        sleep 60
-        netstat -an
+    #     containerRegistry: 'aelf'
+    #     repository: 'node'
+    #     command: 'build'
+    #     Dockerfile: './Dockerfile'
+    #     tags: 'test'
+    # - powershell: docker images   
+    # - powershell: docker version
+    # - task: CmdLine@2
+    #   inputs:
+    #     script: |
+    #       docker run -itd --rm --platform linux --name aelf -p 8001:8000   node:test
+    #       docker ps -a
+    #       sleep 30
+    #       docker ps -a
+    # # # - powershell: ./test.ps1 
+    # # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
+    # # - script: sc create aelf binPath= .\run.bat start= auto
+    # # - script: sc start aelf
+
+    # # - task: ManageWindowService@1
+    # #   inputs:
+    # #     Action: 'Create'
+    # #     ServiceName: 'aelf'
+    # #     BinPath: '.\run.bat'
+    # #     DisplayName: 'aelf'
+    # - script: sc query 
+    # - script: |
+    #     sleep 60
+    #     netstat -an
     # - task: ManageWindowService@1
     #   inputs:
     #     Action: 'Start'
