@@ -16,8 +16,9 @@ jobs:
     #     Action: 'Start'
     #     ServicesName: 'aelf'
 
-    - powershell: cp daemon.json C:\ProgramData\docker\config\
+    # - powershell: cp daemon.json C:\ProgramData\docker\config\
     - powershell: cat C:\ProgramData\docker\config\daemon.json
+      displayName: 'cat daemon.json'
     - powershell: docker info
     - task: Docker@2
       inputs:
