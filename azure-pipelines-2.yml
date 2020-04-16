@@ -6,7 +6,7 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    - script: for /r c:\ %i in (daemon.json) do @echo %i
+    - powershell: for /r c:\ %i in (daemon.json) do @echo %i
     # - powershell: docker run -d --rm --platform linux busybox echo hello_world
     # - script: docker ps -a
     # - script: sleep 30
