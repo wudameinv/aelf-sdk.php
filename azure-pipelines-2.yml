@@ -15,6 +15,7 @@ jobs:
     #   inputs:
     #     Action: 'Start'
     #     ServicesName: 'aelf'
+    - powershell: ls -l C:\Program Files\Docker\
     - task: Docker@2
       inputs:
         containerRegistry: 'aelf'
