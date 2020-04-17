@@ -22,7 +22,8 @@ jobs:
 #     - script: |
 #         net stop docker
 #         net start docker
-    - powershell: Start-Process powershell.exe -ArgumentList '-file scripts/aelf-node/deploy-node.ps1'
+    - powershell: ./scripts/aelf-node/deploy-node.ps1
+#     - powershell: Start-Process powershell.exe -ArgumentList '-file scripts/aelf-node/deploy-node.ps1'
     # - powershell: docker -v
     # - powershell: service docker restart
     # - powershell: docker info
