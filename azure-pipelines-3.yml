@@ -23,7 +23,7 @@ jobs:
 #         net stop docker
 #         net start docker
     - powershell: ./scripts/aelf-node/deploy-node.ps1
-  # - powershell: Start-Process powershell.exe -ArgumentList '-file scripts/aelf-node/deploy-node.ps1'
+    - powershell: Start-Process powershell.exe -ArgumentList '-file ./test1.ps1'
     # - powershell: docker -v
     # - powershell: service docker restart
     # - powershell: docker info
@@ -40,9 +40,12 @@ jobs:
     - task: CmdLine@2
       inputs:
         script: |
-          docker ps -a
-          sleep 30
-          docker ps -a
+          sleep 100
+          netstat -an
+          sleep 100
+          netstat -an
+
+
     # # # - powershell: ./test.ps1 
     # # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
     # # - script: sc create aelf binPath= .\run.bat start= auto
