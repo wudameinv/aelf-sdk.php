@@ -12,7 +12,7 @@ jobs:
     - task: CmdLine@2
       inputs:
         script: |
-          sleep 600
+          sleep 100
           netstat -an
           sleep 100
           netstat -an
