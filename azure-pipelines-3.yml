@@ -8,7 +8,10 @@ jobs:
     steps: 
 
     - powershell: ./scripts/aelf-node/deploy-node.ps1
-    - powershell: Start-Process powershell.exe -ArgumentList 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
+    # - powershell: Start-Process powershell.exe -ArgumentList 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
+    - task: PowerShell@2
+      inputs:
+        arguments: 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
     - task: CmdLine@2
       inputs:
         script: |
