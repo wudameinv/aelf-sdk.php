@@ -7,12 +7,14 @@ ls -l aelf\
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json
 cd aelf/aelf-node 
+$job = Start-Job -ScriptBlock { sleep 5; Write-Host "Hello world."; }
+Wait-Job $job
+Receive-Job -Job $job
 Start-Job -ScriptBlock {dotnet AElf.Launcher.dll}
-Get-Job
+Start-Job -ScriptBlock {New-Item test.txt}
 sleep 60
 Get-Job
-pwd
-ls
+ls test.txt
 #netstat -an
 cd D:\a\1\s\
 cp scripts/aelf-node/php.ini /c/tools/php/php.ini
