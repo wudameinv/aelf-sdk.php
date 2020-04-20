@@ -6,79 +6,16 @@ jobs:
     variables:
       phpVersion: 7.2
     steps: 
-    # - powershell: for /r c:\ %i in (daemon.json) do @echo %i
-    # - powershell: docker run -d --rm --platform linux busybox echo hello_world
-    # - script: docker ps -a
-    # - script: sleep 30
-    # - script: docker ps -a
-    # - task: ManageWindowService@1
-    #   inputs:
-    #     Action: 'Start'
-    #     ServicesName: 'aelf'
 
-#     - powershell: cp daemon.json C:\ProgramData\docker\config\
-#     - powershell: cat C:\ProgramData\docker\config\daemon.json
-#       displayName: 'cat daemon.json'
-#     - script: |
-#         net stop docker
-#         net start docker
     - powershell: ./scripts/aelf-node/deploy-node.ps1
-    - powershell: Start-Process powershell.exe -ArgumentList '-file scripts/aelf-node/deploy-node.ps1'
-    # - powershell: docker -v
-    # - powershell: service docker restart
-    # - powershell: docker info
-    # - task: Docker@2
+    #- powershell: Start-Process powershell.exe -ArgumentList 'dotnet c:\aelf\aelf-node\AElf.Launcher.dll'
+    # - task: PowerShell@2
     #   inputs:
-    #     containerRegistry: 'aelf'
-    #     repository: 'node'
-    #     command: 'build'
-    #     Dockerfile: './Dockerfile'
-    #     tags: 'test'
-    # - powershell: docker images   
-    # - powershell: docker version --platform linux
-            #  docker   run --rm --platform linux -itd  -p 8001:8000   aelf/node:latest
+    #     arguments: '.\test1.ps1'
     - task: CmdLine@2
       inputs:
         script: |
-          docker ps -a
-          sleep 30
-          docker ps -a
-    # # # - powershell: ./test.ps1 
-    # # - powershell: PowerShell.exe  -file ./scripts/aelf-node/deploy-node.ps1
-    # # - script: sc create aelf binPath= .\run.bat start= auto
-    # # - script: sc start aelf
-
-    # # - task: ManageWindowService@1
-    # #   inputs:
-    # #     Action: 'Create'
-    # #     ServiceName: 'aelf'
-    # #     BinPath: '.\run.bat'
-    # #     DisplayName: 'aelf'
-    # - script: sc query 
-    # - script: |
-    #     sleep 60
-    #     netstat -an
-    # - task: ManageWindowService@1
-    #   inputs:
-    #     Action: 'Start'
-    #     ServicesName: 'aelf'
-    # - script: |
-    #       netstat -an \
-    #       sleep 30 \
-    #       netstat -an
-    # - powershell: docker exec -it aelf powershell -c "winpty dotnet c:/aelf/aelf-node/AElf.Launcher.dll"
-    # - powershell: winpty docker exec -it aelf bash -c "./start.ps1"
-    # - script: netstat -an
-    # - powershell: powershell.exe -file scripts/aelf-node/deploy-node.ps1
-      # displayName: 'deploy a full node'
-    # - script: |
-    #       cp scripts/aelf-node/php.ini /c/tools/php/php.ini
-    #       php -c /c/tools/php/php.ini
-    # - script: |
-    #     php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
-    #     php composer-setup.php
-    #     php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
-    #     php composer.phar install --no-interaction --prefer-dist
-    #   displayName: 'composer install'
-    # - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-    #   displayName: 'test'
+          sleep 100
+          netstat -an
+          sleep 100
+          netstat -an
