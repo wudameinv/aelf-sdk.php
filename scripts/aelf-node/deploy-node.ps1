@@ -1,4 +1,4 @@
-
+pwd
 #git clone https://github.com/ideawu/ssdb-bin.git
 #cp C:/__w/1/s/scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
 #cd ssdb-bin  
