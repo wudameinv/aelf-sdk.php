@@ -7,10 +7,10 @@ ls -l aelf\
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json
 cd aelf/aelf-node 
-$job = Start-Job -ScriptBlock { pwd; } -WorkingDirectory "D:\a\1\s\aelf\aelf-node"
+$job = Start-Job -WorkingDirectory D:\a\1\s\aelf\aelf-node -ScriptBlock { pwd; }
 Wait-Job $job
 Receive-Job -Job $job
-Start-Job -ScriptBlock { cd; dotnet AElf.Launcher.dll; } -WorkingDirectory "D:\a\1\s\aelf\aelf-node"
+Start-Job -WorkingDirectory D:\a\1\s\aelf\aelf-node -ScriptBlock { dotnet AElf.Launcher.dll; } 
 sleep 60
 Get-Job
 netstat -an
