@@ -7,13 +7,15 @@ ls -l aelf\
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json
 cd aelf/aelf-node 
-$job = Start-Job -ScriptBlock { sleep 5; Write-Host "Hello world."; }
-Wait-Job $job
-Receive-Job -Job $job
-Start-Job -ScriptBlock {dotnet AElf.Launcher.dll}
-Start-Job -ScriptBlock {New-Item test.txt}
+$job = Start-Job -ScriptBlock {dotnet AElf.Launcher.dll}
+$job1 = Start-Job -ScriptBlock { New-Item test.txt }
+Wait-Job $job1
+Receive-Job -Job $job1
 sleep 60
 Get-Job
+Receive-Job -Job $job
+New-Item test2.txt
+ls test2.txt
 ls test.txt
 #netstat -an
 cd D:\a\1\s\
