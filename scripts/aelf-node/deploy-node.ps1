@@ -7,12 +7,14 @@ ls -l aelf\
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json
 cd aelf/aelf-node 
-Get-Job
-Start-Job -ScriptBlock {dotnet AElf.Launcher.dll}
-Get-Job
-sleep 60
-Get-Job
-netstat -an
+dotnet AElf.Launcher.dll
+
+#Get-Job
+#Start-Job -ScriptBlock {dotnet AElf.Launcher.dll}
+#Get-Job
+#sleep 60
+#Get-Job
+#netstat -an
 cd D:\a\1\s\
 cp scripts/aelf-node/php.ini /c/tools/php/php.ini
 php -c /c/tools/php/php.ini
