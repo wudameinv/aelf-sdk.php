@@ -22,3 +22,4 @@ cd aelf/aelf-node
 $job = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
 sleep 200
 Receive-Job -Job $job
+netstat -an
