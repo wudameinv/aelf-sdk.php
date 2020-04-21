@@ -18,7 +18,7 @@ class AElfTest extends TestCase
     public $opreationAddress;
 
     public function setUp() {
-        $url = 'http://127.0.0.1:8000';
+        $url = 'http://127.0.0.1:8001';
         $this->aelf = new AElf($url);
         $this->opreationAddress ='127.0.0.1:6800';
         $aelfEcdsa = new AElfECDSA();
