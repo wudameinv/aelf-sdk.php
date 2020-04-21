@@ -17,5 +17,6 @@ jobs:
         php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
         php composer.phar install --no-interaction --prefer-dist
       displayName: 'composer install'
+    - powershell: netstat -an
     - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
       displayName: 'test'
