@@ -1,10 +1,3 @@
-#git clone https://github.com/ideawu/ssdb-bin.git
-#cp C:/__w/1/s/scripts/aelf-node/ssdb.conf ssdb-bin/ssdb.conf
-#cd ssdb-bin  
-#cat ssdb.conf
-#./ssdb-server-1.9.4.exe -d ssdb.conf  
-#cat log.txt
-#netstat -an
 mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
 cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
 # ls -l C:\Users\VssAdministrator\AppData\Local\aelf\keys ;
@@ -14,20 +7,8 @@ Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json ;
-cd aelf/aelf-node ;
-# Start-Job -ScriptBlock {& dotnet AElf.Launcher.dll} ;
-# # cd aelf/aelf-node ;
-# dotnet AElf.Launcher.dll ;
-# Start-Job -ScriptBlock {ping 8.8.8.8} ;
-# dotnet c:\aelf\aelf-node\AElf.Launcher.dll
-# sleep 10
-# Get-Job
-# netstat -an
-# sleep 30 
-# netstat -an
-# Get-Job
-# C:\Users\ContainerAdministrator\.dotnet\dotnet.exe
-# cd aelf/aelf-node
-# dotnet AElf.Launcher.dll ;
-##Start-Job { & dotnet AElf.Launcher.dll }
-#netstat -ant ;
+cd aelf/aelf-node 
+$job = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; pwd; }
+# Wait-Job $job
+Receive-Job -Job $job
+Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
