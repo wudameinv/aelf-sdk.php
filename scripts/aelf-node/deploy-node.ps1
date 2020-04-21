@@ -20,3 +20,8 @@ $job = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; pwd; }
 Wait-Job $job
 Receive-Job -Job $job
 Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
+netstat -an
+sleep 30
+netstat -an
+sleep 30
+netstat -an
