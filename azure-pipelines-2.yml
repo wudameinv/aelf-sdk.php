@@ -17,6 +17,10 @@ jobs:
       displayName: 'composer install'
     - powershell: ./scripts/aelf-node/deploy-node.ps1
       displayName: 'deploy a full node'
-    - powershell: netstat -an
+    - powershell: Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; }
+      displayName: 'start node'
+    - script: |
+          sleep 30
+          netstat -an
     - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
       displayName: 'test'
