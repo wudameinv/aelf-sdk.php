@@ -22,5 +22,6 @@ jobs:
     - script: |
           sleep 30
           netstat -an
+    - powershell: Receive-Job -Job Job1
     - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
       displayName: 'test'
