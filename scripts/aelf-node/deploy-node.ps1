@@ -1,5 +1,5 @@
 cd D:\a\1\s
-cp scripts/aelf-node/php.ini /c/tools/php/php.ini
+cp scripts/aelf-node/php.ini c:/c/tools/php/php.ini
 php -c /c/tools/php/php.ini
 # wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Redis-x64-3.2.100.zip -OutFile  redis.zip
 # Expand-Archive -Path redis.zip -DestinationPath redis ;
