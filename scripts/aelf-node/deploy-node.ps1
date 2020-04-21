@@ -27,7 +27,6 @@ Receive-Job -Job $job1
 $job2 = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
 sleep 30
 Receive-Job -Job $job2
-
 netstat -an
-sleep 30 
+sleep 100 
 netstat -an
