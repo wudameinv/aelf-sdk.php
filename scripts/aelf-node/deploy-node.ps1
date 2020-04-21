@@ -16,11 +16,11 @@ ls -l aelf\ ;
 cp scripts\aelf-node\appsettings.json  aelf\aelf-node\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf-node\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf-node 
+dotnet AElf.Launcher.dll
 # $job = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; pwd; }
 # Wait-Job $job
 # Receive-Job -Job $job
-$job = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
-Wait-Job $job
+Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; } 
 netstat -an
 sleep 30
 netstat -an
