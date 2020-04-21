@@ -11,7 +11,7 @@ php -c c:\tools\php\php.ini
 php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"
 php composer-setup.php
 # php composer.phar config -g repo.packagist composer https://packagist.phpcomposer.com
-php composer.phar install --no-interaction --prefer-dist
+# php composer.phar install --no-interaction --prefer-dist
 php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
 # mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
 # cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
