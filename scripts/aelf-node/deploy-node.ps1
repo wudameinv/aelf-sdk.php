@@ -17,7 +17,7 @@ ls -l D:\a\1\s\aelf\aelf
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf
-$job2 = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf; dotnet AElf.Launcher.dll; } 
-sleep 60
-cd D:\a\1\s
-php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
+# $job2 = Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf; dotnet AElf.Launcher.dll; } 
+# sleep 60
+# cd D:\a\1\s
+# php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
