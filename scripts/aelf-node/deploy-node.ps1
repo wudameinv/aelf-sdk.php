@@ -6,6 +6,7 @@ $job1 = Start-Job -ScriptBlock { cd c:\redis; redis-server -d redis.windows.conf
 netstat -an
 get-job
 sleep 30
+Receive-Job -Job $job1
 get-job
 netstat -an
 # mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
