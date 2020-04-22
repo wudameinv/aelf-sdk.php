@@ -16,17 +16,4 @@ jobs:
         php composer.phar install --no-interaction --prefer-dist
       displayName: 'composer install'
     - powershell: ./scripts/aelf-node/deploy-node.ps1
-      displayName: 'deploy a full node'
-    - script: |
-        netstat -an
-        sleep 20
-        netstat -an
-    - powershell:  get-job
-#     - powershell: Start-Job -ScriptBlock { cd D:\a\1\s\aelf\aelf-node; dotnet AElf.Launcher.dll; }
-#       displayName: 'start node'
-#     - script: |
-#           sleep 30
-#           netstat -an
-#     - powershell: Receive-Job -Job Job1
-#     - powershell: php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php 
-#       displayName: 'test'
+      displayName: 'deploy a full node and run unit-test'
