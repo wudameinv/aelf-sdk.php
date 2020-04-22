@@ -2,7 +2,7 @@ wget https://github.com/microsoftarchive/redis/releases/download/win-3.2.100/Red
 Expand-Archive -Path redis.zip -DestinationPath redis ;
 ls -l c:\redis\
 cd redis
-$job1 = Start-Job -ScriptBlock { cd c:\redis; redis-server redis.windows.conf; }
+$job1 = Start-Job -ScriptBlock { cd c:\redis; redis-server -d redis.windows.conf; }
 netstat -an
 get-job
 sleep 30
