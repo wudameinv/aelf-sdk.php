@@ -16,4 +16,5 @@ get-job
 # get-job
 # sleep 100 
 # get-job
+cd D:\a\1\s
 php phpunit.phar --bootstrap bootstrap.php tests/AElfTest.php
