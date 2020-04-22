@@ -5,7 +5,7 @@ sleep 30
 netstat -an
 mkdir -p C:\Users\VssAdministrator\AppData\Local\aelf\keys
 cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys;
-wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip
+wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip -OutFile  aelf.zip
 Expand-Archive -Path aelf.zip -DestinationPath aelf ;
 ls -l D:\a\1\s\aelf\aelf
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
