@@ -13,6 +13,7 @@ cp -r scripts\aelf-node\keys\* C:\Users\VssAdministrator\AppData\Local\aelf\keys
 # wget http://18.203.235.132:8000/aelf-node.zip -OutFile  aelf.zip ; 
 wget https://github.com/AElfProject/AElf/releases/download/v1.0.0-preview1/aelf.zip
 Expand-Archive -Path aelf.zip -DestinationPath aelf ;
+ls -l D:\a\1\s\aelf\aelf
 cp scripts\aelf-node\appsettings.json  aelf\aelf\appsettings.json ;
 cp scripts\aelf-node\appsettings.MainChain.TestNet.json  aelf\aelf\appsettings.MainChain.TestNet.json ;
 cd aelf/aelf
